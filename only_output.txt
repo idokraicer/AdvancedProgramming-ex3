@@ -1,0 +1,1263 @@
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+Rick this option is not known to the daycare ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+Jerry , ID - 23dF21 : 
+Happiness level : 50 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	Height : 166.20 , LimbsNumber : 4.00 , Weight : 80.00 
+Jerry , ID - 1q456 : 
+Happiness level : 10 
+Origin : C-455 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry , ID - S5d2 : 
+Happiness level : 99 
+Origin : V-234 
+Planet : Gaia (983.22,8521.00,2312.00) 
+Jerry's physical Characteristics available : 
+	Age : 50.00 
+Jerry , ID - 6e45 : 
+Happiness level : 34 
+Origin : B-344 
+Planet : Pluto (3454.21,124.11,985.45) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 2.00 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+What physical characteristics ? 
+LimbsNumber : 
+Jerry , ID - 23dF21 : 
+Happiness level : 50 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	Height : 166.20 , LimbsNumber : 4.00 , Weight : 80.00 
+Jerry , ID - 6e45 : 
+Happiness level : 34 
+Origin : B-344 
+Planet : Pluto (3454.21,124.11,985.45) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 2.00 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+Planet : Earth (123.10,8392.00,99.20) 
+Planet : Gaia (983.22,8521.00,2312.00) 
+Planet : Gazorpazorp (85.10,555.50,312.00) 
+Planet : Pluto (3454.21,124.11,985.45) 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What is your Jerry's ID ? 
+Rick did you forgot ? you already left him here ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What is your Jerry's ID ? 
+What planet is your Jerry from ? 
+notExist is not a known planet ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What is your Jerry's ID ? 
+What planet is your Jerry from ? 
+What is your Jerry's dimension ? 
+How happy is your Jerry now ? 
+Jerry , ID - 23dF29 : 
+Happiness level : 15 
+Origin : F-123 
+Planet : Gazorpazorp (85.10,555.50,312.00) 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What is your Jerry's ID ? 
+Rick this Jerry is not in the daycare ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What is your Jerry's ID ? 
+What physical characteristic can you add to Jerry - 23dF21 ? 
+The information about his LimbsNumber already available to the daycare ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What is your Jerry's ID ? 
+What physical characteristic can you add to Jerry - 23dF29 ? 
+What is the value of his LimbsNumber ? 
+LimbsNumber : 
+Jerry , ID - 23dF21 : 
+Happiness level : 50 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	Height : 166.20 , LimbsNumber : 4.00 , Weight : 80.00 
+Jerry , ID - 6e45 : 
+Happiness level : 34 
+Origin : B-344 
+Planet : Pluto (3454.21,124.11,985.45) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 2.00 
+Jerry , ID - 23dF29 : 
+Happiness level : 15 
+Origin : F-123 
+Planet : Gazorpazorp (85.10,555.50,312.00) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 1.00 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What is your Jerry's ID ? 
+Rick this Jerry is not in the daycare ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What is your Jerry's ID ? 
+What physical characteristic do you want to remove from Jerry - 23dF21 ? 
+Jerry , ID - 23dF21 : 
+Happiness level : 50 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	Height : 166.20 , Weight : 80.00 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What is your Jerry's ID ? 
+What physical characteristic do you want to remove from Jerry - 23dF21 ? 
+The information about his LimbsNumber not available to the daycare ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+What physical characteristics ? 
+LimbsNumber : 
+Jerry , ID - 6e45 : 
+Happiness level : 34 
+Origin : B-344 
+Planet : Pluto (3454.21,124.11,985.45) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 2.00 
+Jerry , ID - 23dF29 : 
+Happiness level : 15 
+Origin : F-123 
+Planet : Gazorpazorp (85.10,555.50,312.00) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 1.00 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+Jerry , ID - 23dF21 : 
+Happiness level : 50 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	Height : 166.20 , Weight : 80.00 
+Jerry , ID - 1q456 : 
+Happiness level : 10 
+Origin : C-455 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry , ID - S5d2 : 
+Happiness level : 99 
+Origin : V-234 
+Planet : Gaia (983.22,8521.00,2312.00) 
+Jerry's physical Characteristics available : 
+	Age : 50.00 
+Jerry , ID - 6e45 : 
+Happiness level : 34 
+Origin : B-344 
+Planet : Pluto (3454.21,124.11,985.45) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 2.00 
+Jerry , ID - 23dF29 : 
+Happiness level : 15 
+Origin : F-123 
+Planet : Gazorpazorp (85.10,555.50,312.00) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 1.00 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What is your Jerry's ID ? 
+Rick this Jerry is not in the daycare ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What is your Jerry's ID ? 
+Rick thank you for using our daycare service ! Your Jerry awaits ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+Jerry , ID - 23dF21 : 
+Happiness level : 50 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	Height : 166.20 , Weight : 80.00 
+Jerry , ID - 1q456 : 
+Happiness level : 10 
+Origin : C-455 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry , ID - S5d2 : 
+Happiness level : 99 
+Origin : V-234 
+Planet : Gaia (983.22,8521.00,2312.00) 
+Jerry's physical Characteristics available : 
+	Age : 50.00 
+Jerry , ID - 6e45 : 
+Happiness level : 34 
+Origin : B-344 
+Planet : Pluto (3454.21,124.11,985.45) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 2.00 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+What physical characteristics ? 
+LimbsNumber : 
+Jerry , ID - 6e45 : 
+Happiness level : 34 
+Origin : B-344 
+Planet : Pluto (3454.21,124.11,985.45) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 2.00 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What do you remember about your Jerry ? 
+What do you remember about the value of his Weight ? 
+Rick this is the most suitable Jerry we found : 
+Jerry , ID - 23dF21 : 
+Happiness level : 50 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	Height : 166.20 , Weight : 80.00 
+Rick thank you for using our daycare service ! Your Jerry awaits ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What do you remember about your Jerry ? 
+Rick we can not help you - we do not know any Jerry's notExist ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What is your Jerry's ID ? 
+What planet is your Jerry from ? 
+C-137 is not a known planet ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What is your Jerry's ID ? 
+What planet is your Jerry from ? 
+What is your Jerry's dimension ? 
+How happy is your Jerry now ? 
+Jerry , ID - 23dF21 : 
+Happiness level : 50 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+Jerry , ID - 1q456 : 
+Happiness level : 10 
+Origin : C-455 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry , ID - S5d2 : 
+Happiness level : 99 
+Origin : V-234 
+Planet : Gaia (983.22,8521.00,2312.00) 
+Jerry's physical Characteristics available : 
+	Age : 50.00 
+Jerry , ID - 6e45 : 
+Happiness level : 34 
+Origin : B-344 
+Planet : Pluto (3454.21,124.11,985.45) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 2.00 
+Jerry , ID - 23dF21 : 
+Happiness level : 50 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What is your Jerry's ID ? 
+What physical characteristic can you add to Jerry - 23dF21 ? 
+What is the value of his LimbsNumber ? 
+LimbsNumber : 
+Jerry , ID - 6e45 : 
+Happiness level : 34 
+Origin : B-344 
+Planet : Pluto (3454.21,124.11,985.45) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 2.00 
+Jerry , ID - 23dF21 : 
+Happiness level : 50 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 6.00 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What do you remember about your Jerry ? 
+What do you remember about the value of his LimbsNumber ? 
+Rick this is the most suitable Jerry we found : 
+Jerry , ID - 6e45 : 
+Happiness level : 34 
+Origin : B-344 
+Planet : Pluto (3454.21,124.11,985.45) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 2.00 
+Rick thank you for using our daycare service ! Your Jerry awaits ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+What physical characteristics ? 
+LimbsNumber : 
+Jerry , ID - 23dF21 : 
+Happiness level : 50 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 6.00 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+Jerry , ID - 1q456 : 
+Happiness level : 10 
+Origin : C-455 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry , ID - S5d2 : 
+Happiness level : 99 
+Origin : V-234 
+Planet : Gaia (983.22,8521.00,2312.00) 
+Jerry's physical Characteristics available : 
+	Age : 50.00 
+Jerry , ID - 23dF21 : 
+Happiness level : 50 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 6.00 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What is your Jerry's ID ? 
+What physical characteristic can you add to Jerry - 1q456 ? 
+What is the value of his LimbsNumber ? 
+LimbsNumber : 
+Jerry , ID - 23dF21 : 
+Happiness level : 50 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 6.00 
+Jerry , ID - 1q456 : 
+Happiness level : 10 
+Origin : C-455 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 1.00 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What do you remember about your Jerry ? 
+What do you remember about the value of his LimbsNumber ? 
+Rick this is the most suitable Jerry we found : 
+Jerry , ID - 1q456 : 
+Happiness level : 10 
+Origin : C-455 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 1.00 
+Rick thank you for using our daycare service ! Your Jerry awaits ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+What physical characteristics ? 
+LimbsNumber : 
+Jerry , ID - 23dF21 : 
+Happiness level : 50 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 6.00 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+Jerry , ID - S5d2 : 
+Happiness level : 99 
+Origin : V-234 
+Planet : Gaia (983.22,8521.00,2312.00) 
+Jerry's physical Characteristics available : 
+	Age : 50.00 
+Jerry , ID - 23dF21 : 
+Happiness level : 50 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 6.00 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What is your Jerry's ID ? 
+What planet is your Jerry from ? 
+What is your Jerry's dimension ? 
+How happy is your Jerry now ? 
+Jerry , ID - 1q456 : 
+Happiness level : 2 
+Origin : C-455 
+Planet : Earth (123.10,8392.00,99.20) 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+Jerry , ID - S5d2 : 
+Happiness level : 99 
+Origin : V-234 
+Planet : Gaia (983.22,8521.00,2312.00) 
+Jerry's physical Characteristics available : 
+	Age : 50.00 
+Jerry , ID - 23dF21 : 
+Happiness level : 50 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 6.00 
+Jerry , ID - 1q456 : 
+Happiness level : 2 
+Origin : C-455 
+Planet : Earth (123.10,8392.00,99.20) 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+Rick this is the most suitable Jerry we found : 
+Jerry , ID - 1q456 : 
+Happiness level : 2 
+Origin : C-455 
+Planet : Earth (123.10,8392.00,99.20) 
+Rick thank you for using our daycare service ! Your Jerry awaits ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+Jerry , ID - S5d2 : 
+Happiness level : 99 
+Origin : V-234 
+Planet : Gaia (983.22,8521.00,2312.00) 
+Jerry's physical Characteristics available : 
+	Age : 50.00 
+Jerry , ID - 23dF21 : 
+Happiness level : 50 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 6.00 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What is your Jerry's ID ? 
+What planet is your Jerry from ? 
+What is your Jerry's dimension ? 
+How happy is your Jerry now ? 
+Jerry , ID - 1q456 : 
+Happiness level : 10 
+Origin : C-455 
+Planet : Earth (123.10,8392.00,99.20) 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+Jerry , ID - S5d2 : 
+Happiness level : 99 
+Origin : V-234 
+Planet : Gaia (983.22,8521.00,2312.00) 
+Jerry's physical Characteristics available : 
+	Age : 50.00 
+Jerry , ID - 23dF21 : 
+Happiness level : 50 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 6.00 
+Jerry , ID - 1q456 : 
+Happiness level : 10 
+Origin : C-455 
+Planet : Earth (123.10,8392.00,99.20) 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What activity do you want the Jerries to partake in ? 
+1 : Interact with fake Beth 
+2 : Play golf 
+3 : Adjust the picture settings on the TV 
+The activity is now over ! 
+Jerry , ID - S5d2 : 
+Happiness level : 100 
+Origin : V-234 
+Planet : Gaia (983.22,8521.00,2312.00) 
+Jerry's physical Characteristics available : 
+	Age : 50.00 
+Jerry , ID - 23dF21 : 
+Happiness level : 65 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 6.00 
+Jerry , ID - 1q456 : 
+Happiness level : 5 
+Origin : C-455 
+Planet : Earth (123.10,8392.00,99.20) 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What activity do you want the Jerries to partake in ? 
+1 : Interact with fake Beth 
+2 : Play golf 
+3 : Adjust the picture settings on the TV 
+The activity is now over ! 
+Jerry , ID - S5d2 : 
+Happiness level : 100 
+Origin : V-234 
+Planet : Gaia (983.22,8521.00,2312.00) 
+Jerry's physical Characteristics available : 
+	Age : 50.00 
+Jerry , ID - 23dF21 : 
+Happiness level : 85 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 6.00 
+Jerry , ID - 1q456 : 
+Happiness level : 25 
+Origin : C-455 
+Planet : Earth (123.10,8392.00,99.20) 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What activity do you want the Jerries to partake in ? 
+1 : Interact with fake Beth 
+2 : Play golf 
+3 : Adjust the picture settings on the TV 
+The activity is now over ! 
+Jerry , ID - S5d2 : 
+Happiness level : 100 
+Origin : V-234 
+Planet : Gaia (983.22,8521.00,2312.00) 
+Jerry's physical Characteristics available : 
+	Age : 50.00 
+Jerry , ID - 23dF21 : 
+Happiness level : 95 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 6.00 
+Jerry , ID - 1q456 : 
+Happiness level : 15 
+Origin : C-455 
+Planet : Earth (123.10,8392.00,99.20) 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What activity do you want the Jerries to partake in ? 
+1 : Interact with fake Beth 
+2 : Play golf 
+3 : Adjust the picture settings on the TV 
+The activity is now over ! 
+Jerry , ID - S5d2 : 
+Happiness level : 100 
+Origin : V-234 
+Planet : Gaia (983.22,8521.00,2312.00) 
+Jerry's physical Characteristics available : 
+	Age : 50.00 
+Jerry , ID - 23dF21 : 
+Happiness level : 100 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 6.00 
+Jerry , ID - 1q456 : 
+Happiness level : 5 
+Origin : C-455 
+Planet : Earth (123.10,8392.00,99.20) 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What activity do you want the Jerries to partake in ? 
+1 : Interact with fake Beth 
+2 : Play golf 
+3 : Adjust the picture settings on the TV 
+The activity is now over ! 
+Jerry , ID - S5d2 : 
+Happiness level : 100 
+Origin : V-234 
+Planet : Gaia (983.22,8521.00,2312.00) 
+Jerry's physical Characteristics available : 
+	Age : 50.00 
+Jerry , ID - 23dF21 : 
+Happiness level : 100 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 6.00 
+Jerry , ID - 1q456 : 
+Happiness level : 0 
+Origin : C-455 
+Planet : Earth (123.10,8392.00,99.20) 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What activity do you want the Jerries to partake in ? 
+1 : Interact with fake Beth 
+2 : Play golf 
+3 : Adjust the picture settings on the TV 
+The activity is now over ! 
+Jerry , ID - S5d2 : 
+Happiness level : 100 
+Origin : V-234 
+Planet : Gaia (983.22,8521.00,2312.00) 
+Jerry's physical Characteristics available : 
+	Age : 50.00 
+Jerry , ID - 23dF21 : 
+Happiness level : 100 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 6.00 
+Jerry , ID - 1q456 : 
+Happiness level : 0 
+Origin : C-455 
+Planet : Earth (123.10,8392.00,99.20) 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+Jerry , ID - S5d2 : 
+Happiness level : 100 
+Origin : V-234 
+Planet : Gaia (983.22,8521.00,2312.00) 
+Jerry's physical Characteristics available : 
+	Age : 50.00 
+Jerry , ID - 23dF21 : 
+Happiness level : 100 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 6.00 
+Jerry , ID - 1q456 : 
+Happiness level : 0 
+Origin : C-455 
+Planet : Earth (123.10,8392.00,99.20) 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+What physical characteristics ? 
+Rick we can not help you - we do not know any Jerry's notExist ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+Rick this option is not known to the daycare ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+Rick this option is not known to the daycare ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What activity do you want the Jerries to partake in ? 
+1 : Interact with fake Beth 
+2 : Play golf 
+3 : Adjust the picture settings on the TV 
+Rick this option is not known to the daycare ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+What physical characteristics ? 
+LimbsNumber : 
+Jerry , ID - 23dF21 : 
+Happiness level : 100 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 6.00 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+Rick this is the most suitable Jerry we found : 
+Jerry , ID - 1q456 : 
+Happiness level : 0 
+Origin : C-455 
+Planet : Earth (123.10,8392.00,99.20) 
+Rick thank you for using our daycare service ! Your Jerry awaits ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+Jerry , ID - S5d2 : 
+Happiness level : 100 
+Origin : V-234 
+Planet : Gaia (983.22,8521.00,2312.00) 
+Jerry's physical Characteristics available : 
+	Age : 50.00 
+Jerry , ID - 23dF21 : 
+Happiness level : 100 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 6.00 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+Rick this is the most suitable Jerry we found : 
+Jerry , ID - S5d2 : 
+Happiness level : 100 
+Origin : V-234 
+Planet : Gaia (983.22,8521.00,2312.00) 
+Jerry's physical Characteristics available : 
+	Age : 50.00 
+Rick thank you for using our daycare service ! Your Jerry awaits ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+Rick this is the most suitable Jerry we found : 
+Jerry , ID - 23dF21 : 
+Happiness level : 100 
+Origin : C-137 
+Planet : Earth (123.10,8392.00,99.20) 
+Jerry's physical Characteristics available : 
+	LimbsNumber : 6.00 
+Rick thank you for using our daycare service ! Your Jerry awaits ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+Rick we can not help you - we currently have no Jerries in the daycare ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What do you remember about your Jerry ? 
+Rick we can not help you - we do not know any Jerry's LimbsNumber ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+Rick we can not help you - we currently have no Jerries in the daycare ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+What information do you want to know ? 
+1 : All Jerries 
+2 : All Jerries by physical characteristics 
+3 : All known planets 
+Rick we can not help you - we currently have no Jerries in the daycare ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+Rick we can not help you - we currently have no Jerries in the daycare ! 
+Welcome Rick, what are your Jerry's needs today ? 
+1 : Take this Jerry away from me 
+2 : I think I remember something about my Jerry 
+3 : Oh wait. That can't be right 
+4 : I guess I will take back my Jerry now 
+5 : I can't find my Jerry. Just give me a similar one 
+6 : I lost a bet. Give me your saddest Jerry 
+7 : Show me what you got 
+8 : Let the Jerries play 
+9 : I had enough. Close this place 
+The daycare is now clean and close ! 
