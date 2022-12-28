@@ -42,10 +42,12 @@ status destroyKeyValuePair(Element e) {
         return failure;
     }
     KeyValuePair k = (KeyValuePair) e;
-//    k->destroyValue(k->value);
-//    k->destroyKey(k->key);
+    status s;
+    s= k->destroyValue(k->value);
+    s = max(s,k->destroyKey(k->key));
+
     free(k);
-    return success;
+    return s;
 }
 
 status displayValue(Element e) {
@@ -53,7 +55,7 @@ status displayValue(Element e) {
         return failure;
     }
     KeyValuePair kvp = (KeyValuePair) e;
-    kvp->printValue(kvp->value);
+    return kvp->printValue(kvp->value);
 }
 
 status displayKey(Element e) {
@@ -61,14 +63,14 @@ status displayKey(Element e) {
         return failure;
     }
     KeyValuePair kvp = (KeyValuePair) e;
-    kvp->printKey(kvp->key);
+    return kvp->printKey(kvp->key);
 }
 
 status displayKeyValuePair(Element kvp) {
     KeyValuePair k = (KeyValuePair) kvp;
 //    k->printKey(k->key);
 //    printf(" : ");
-    k->printValue(k->value);
+    return k->printValue(k->value);
 }
 
 Element getKey(Element kvp) {

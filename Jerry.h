@@ -17,12 +17,15 @@ typedef struct PlanetStruct { // Defines a new type called "Planet" that contain
 //    status (*destroyPlanet)(void *p); // A function pointer that points to a function that destroys a planet
 } Planet;
 
+Planet **createPlanetArray(int size); // Creates and allocates an array of planets
+
 status destroyPlanet(Element p); // A function that destroys a planet
 
 Planet *initPlanet(float x, float y, float z,
                    char *name); // A function that initializes a planet, taking its x,y,z cords and name
 
-Planet *locatePlanet(char *name, Planet **ps, int numOfPlanets); // A function that locates a planet in an array of planets
+Planet *
+locatePlanet(char *name, Planet **ps, int numOfPlanets); // A function that locates a planet in an array of planets
 
 typedef struct OriginStruct { // Defines a new type called "Origin" that contains a dimension name and a planet
     Planet *planet; // A planet pointer
@@ -131,6 +134,8 @@ status printJerryInfo(Element j);
 
 status printAllJerries(Element l);
 
+bool compareHappiness(Element a, Element b);
+
 status readFromConfig(char *url, int numOfPlanets, Planet **planets,
-                      LinkedList jerries, LinkedList jerriesSorted, int *numOfJerries,
+                      LinkedList jerries, LinkedList *jerriesSorted, int *numOfJerries,
                       hashTable byID, MultiValueHashTable byPC, MultiValueHashTable byPlanet);

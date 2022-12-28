@@ -32,20 +32,20 @@ LinkedList createLinkedList(FreeFunction destroyNode, PrintFunction printNode, E
     return n;
 }
 
-status destroyList(LinkedList l) {
-    if (!l || !l->data) return success;
+status destroyList(Element e) {
+    LinkedList l = (LinkedList) e;
+    l=l->head;
+    if (isEmpty(l)) return success;
     status flag = success;
-    int count = 1;
-    while (l && l->data) {
+    while (!isEmpty(l)) {
         LinkedList temp = l;
-//        FreeFunction ff = l->destroyNode;
-        //flag = flag > l->destroyNode(l) ? failure : success;
         l = l->next;
-        temp->destroyNode(temp);
-        if (flag == failure) return failure;
-        // TODO: free data
+        flag = max(temp->destroyNode(temp->data), flag);
+//        if (temp) free(temp);
+        if (flag != success) return failure;
     }
-    return success;
+    free(l);
+    return flag;
 }
 
 bool notLast(LinkedList n) {
@@ -68,9 +68,10 @@ status appendNode(LinkedList l, Element toAdd) {
     }
 
     LinkedList l_toAdd = createLinkedList(l->destroyNode, l->printNode, l->compare, l->copy);
-    if (l_toAdd == NULL) return failure;
+    if (l_toAdd == NULL) return memory_error;
     l_toAdd->data = l->copy(toAdd);
     l_toAdd->head = l->head;
+
     while (notLast(l)) {
         l = l->next;
     }
@@ -79,40 +80,46 @@ status appendNode(LinkedList l, Element toAdd) {
     return success;
 }
 
-status displayNode(Element e) {
-    LinkedList l = (LinkedList) e;
-    if (!l) return failure;
-    if (!l->data) {
-        printf("Got an empty node \n");
-        return failure;
-    }
-    PrintFunction pf = l->printNode;
-    pf(l->data);
-    return success;
-}
 
-status appendCondition(LinkedList l, Element toAdd, EqualFunction cmp) {
-    if (!l || !toAdd || !cmp) return failure;
-    if(!l->data) return appendNode(l,toAdd);
-    LinkedList newl= createLinkedList(l->destroyNode, l->printNode, l->compare, l->copy);
-    if(!newl) return failure;
+LinkedList appendCondition(LinkedList l, Element toAdd, EqualFunction cmp) {
+    LinkedList head = l->head;
+    if (!l || !toAdd || !cmp) return l;
+    if (!l->data) {
+        appendNode(l, toAdd);
+        return l;
+    };
+    LinkedList newl = createLinkedList(l->destroyNode, l->printNode, l->compare, l->copy);
+    if (!newl) return NULL;
     newl->data = l->copy(toAdd);
     newl->head = l->head;
-    if(!l->data || cmp(l->data,toAdd) == true){
+    if (cmp(l->data, toAdd)) {
         newl->next = l;
         l->prev = newl;
-        l->head = newl;
-        return success;
+        newl->head = newl;
+        head = newl;
+        return head;
+    }
+    while (!isEmpty(l->next) && !cmp(l->next->data, toAdd)) {
+        l = l->next;
+    }
+    if (cmp(l->data, toAdd)) {
+        newl->next = l;
+        newl->prev = l->prev;
+        l->next->prev = newl;
+        l->next = newl;
+        return head;
     } else {
-        LinkedList current = l;
-        while(current->next && cmp(current->next->data,toAdd) == false){
-            current = current->next;
+        if (isEmpty(l->next)) {
+            l->next = newl;
+            newl->prev = l;
+            return head;
+        } else {
+            newl->next = l->next;
+            newl->prev = l;
+            l->next->prev = newl;
+            l->next = newl;
+            return head;
         }
-
-        newl->next = current;
-        newl->prev = current->prev;
-        current->prev = newl;
-        return success;
     }
 }
 
@@ -123,7 +130,7 @@ status displayList(Element e) {
         return failure; // failure
     }
     PrintFunction pf;
-    while (l && l->data) {
+    while (!isEmpty(l)) {
         pf = l->printNode;
         if (pf(l->data) == success) printf("\n");
         l = l->next;
@@ -131,46 +138,68 @@ status displayList(Element e) {
     return success;
 }
 
-status deleteNode(LinkedList l, Element toDelete) {
-    if (!l || !toDelete) return failure;
-    while (notLast(l)) {
-        if (l->compare(l->data, toDelete)) {
-            if (!l->prev) { // If first
-                if (!l->next) { // If only one node
-                    l->data = NULL;
-                    l->head = NULL;
-                    l->destroyNode(l);
-                    return success;
+status doNothing2(Element e) {
+    return success;
+}
+
+status deleteNode(LinkedList head, Element toDelete) {
+    status s = success;
+    printf("Trying to remove\n");
+    if (!head || !toDelete) return failure;
+    LinkedList curr = head;
+    while (notLast(curr)) {
+        if (curr->compare(curr->data, toDelete)) {
+            if (!curr->prev) { // If first
+                if (!curr->next) { // If only one node
+                    printf("first only one\n");
+                    head->head = head;
+                    s = max(s, head->destroyNode(head->data));
+                    free(head);
+                    return s;
                 } else { // If first but not only one node
-                    l->next->prev = NULL;
-                    l->head = l->next;
-                    l->data = NULL;
-                    *l = *(l->head);
-                    return success;
+                    LinkedList temp = curr;
+                    printf("first not only one\n");
+                    head->head = curr;
+                    head->prev = NULL;
+                    s = max(s, temp->destroyNode(temp->data));
+                    free(temp);
+                    return s;
                 }
-            } else if (l->next != NULL) { // if not first and has next
-                LinkedList temp = l;
-                l->prev->next = l->next;
-                l->next->prev = l->prev;
+            } else if (curr->next != NULL) { // if not first and has next
+                printf("not first and has next \n");
+                LinkedList temp = curr;
+                curr->prev->next = curr->next;
+                curr->next->prev = curr->prev;
+                s = max(s, head->destroyNode(temp->data));
                 temp->data = NULL;
-                return success;
+                free(temp);
+                printf("Did it not first and has next \n");
+                return s;
             } else { // if last
-                l->prev->next = NULL;
-                l->data = NULL;
-                return success;
+                printf("last \n");
+                curr->prev->next = NULL;
+                s = max(s, head->destroyNode(curr->data));
+                curr->data = NULL;
+                free(curr);
+                printf("Did it last \n");
+
+                return s;
             }
         }
-        l = l->next;
+        curr = curr->next;
     }
-    if (l->compare(l->data, toDelete)) {
-        if (!l->prev) { // If first
-            if (!l->next) { // If only one node
-                l->data = NULL;
-                l->head = NULL;
-                return success;
-            }
-        }
-    }
+//    if (head->compare(head->data, toDelete)) {
+//        if (!head->prev) { // If first
+//            if (!head->next) { // If only one node
+//                head->destroyNode(head);
+//                head->data = NULL;
+//                free(head);
+//                printf("Did it first and only one \n");
+//
+//                return success;
+//            }
+//        }
+//    }
     return failure;
 }
 
@@ -183,16 +212,48 @@ LinkedList getNext(LinkedList l) {
     return l->next;
 }
 
+status updateData(LinkedList l, UpdateFunction update) {
+    if (!l || !update) return failure;
+    LinkedList curr = l;
+    status s = success;
+    while (!isEmpty(curr)) {
+        s = max(update(curr->data), s);
+        curr = curr->next;
+    }
+    return s;
+}
+
 Element searchByKeyInList(LinkedList l, Element key) {
     if (!l || !key) return NULL;
-    while (l && l->data) {
-        if (l->compare(l->data, key)) {
-            return l->data;
+    LinkedList curr = l;
+    while (!isEmpty(curr)) {
+        if (curr->compare(curr->data, key)) {
+            return curr->data;
         }
-        l = l->next;
+        curr = curr->next;
     }
     return NULL;
 }
+
+Element searchClosest(LinkedList l, float value, char *key, CompareFunction compareFunction) {
+    if (isEmpty(l) || !value) return NULL;
+    if (!l->next) return l->data;
+    LinkedList closest, curr;
+    float closestValueFromKey = compareFunction(l->data, value, key);
+    curr = l->next;
+    while (!isEmpty(curr)) {
+        float diff = compareFunction(curr->data, value, key);
+        if (diff == 0.0) return curr->data;
+        if (diff == -1.0) continue;
+        if (diff < closestValueFromKey) {
+            closest = curr;
+            closestValueFromKey = diff;
+        }
+        curr = curr->next;
+    }
+    return closest->data;
+}
+
 
 int getLengthList(LinkedList l) {
     if (!l || !l->data) return 0;

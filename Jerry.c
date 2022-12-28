@@ -34,6 +34,15 @@ char *strupr(char *origin) { // A function that converts a string to uppercase a
     return newStr;
 }
 
+Planet **createPlanetArray(int size) {
+    Planet **arr = malloc(sizeof(Planet *) * size);
+    if (!arr) return NULL; // Memory Error
+    for (int i = 0; i < size; i++) {
+        arr[i] = NULL;
+    }
+    return arr;
+}
+
 #ifdef debug
 
 Planet *locatePlanet(char *name, Planet **ps, int numOfPlanets) { // A function that locates a planet by its name
@@ -62,16 +71,14 @@ Planet *locatePlanet(char *name, Planet **ps, int numOfPlanets) { // A function 
     free(name_upper); // Freeing the memory for the upper case name
     return NULL; // Planet wasn't found, return NULL
 }
+
 bool compareHappiness(Element a, Element b) {
-    printf("Comparing\n");
-    int happiness =((Jerry*)b)->happiness;
+    int happiness = ((Jerry *) b)->happiness;
     Jerry *j1 = (Jerry *) a;
-    printf("Happiness 1: %d, Happiness 2: %d, condition: %d\n", j1->happiness, happiness,
-           j1->happiness > happiness);
     return j1->happiness > happiness;
 }
 
-char *deepCopyString(char *a){
+char *deepCopyString(char *a) {
     char *copy = malloc(strlen(a) + 1);
     if (!copy) return NULL; // Memory Error
     strcpy(copy, a);
@@ -79,16 +86,20 @@ char *deepCopyString(char *a){
 }
 
 status readFromConfig(char *url, int numOfPlanets, Planet **planets,
-                      LinkedList jerries, LinkedList jerriesSorted, int *numOfJerries, hashTable byID, MultiValueHashTable byPC, MultiValueHashTable byPlanet) { // A function that reads the config file
+                      LinkedList jerries, LinkedList *jerriesSorted, int *numOfJerries, hashTable byID,
+                      MultiValueHashTable byPC, MultiValueHashTable byPlanet) { // A function that reads the config file
     // The program takes in a number of planets and a file name
     // The program reads the config file and sets the number of planets and Jerries,
     // and builds the Jerries and planets from the file
-
+    status s;
     char row[BUFFER]; // A buffer for the row
 
     FILE *file; // A pointer to the file
     file = fopen(url, "r"); // Open the file
-    if (!file || ferror(file)) { printf("File not found.\n"); return failure; } // If the file doesn't exist or there is an error, return failure
+    if (!file || ferror(file)) {
+        printf("File not found.\n");
+        return failure;
+    } // If the file doesn't exist or there is an error, return failure
     fgets(row, BUFFER, file); // Get the first row
     if (strcmp(row, "Planets\n") != 0) { // If the first row isn't "Planets"
         fclose(file); // Close the file
@@ -108,6 +119,10 @@ status readFromConfig(char *url, int numOfPlanets, Planet **planets,
         if (!planet) { // If the planet doesn't exist
             records++; // Increase the number of records
             planets[records - 1] = (Planet *) initPlanet(x, y, z, name);
+            if(!planets[records - 1]) { // If the planet wasn't created
+                fclose(file); // Close the file
+                return memory_error; // Return failure
+            }
             // Initialize a new planet and add it to the array of planets
         } else return failure; // If the planet already exists, return failure
     } while (!feof(file)); // While the end of the file hasn't been reached
@@ -125,6 +140,10 @@ status readFromConfig(char *url, int numOfPlanets, Planet **planets,
             float amount = atof(strtok(NULL, ":"));  // Get the Physical characteristic amount
 
             PhysicalCharacteristics *pc = initPc(amount, id); // Initialize a new Physical characteristic
+            if(!pc) { // If the Physical characteristic wasn't created
+                fclose(file); // Close the file
+                return memory_error; // Return failure
+            }
             addPcToJerry(pc, j);
             addToMultiValueHashTable(byPC, pc->name, j);
 
@@ -133,25 +152,29 @@ status readFromConfig(char *url, int numOfPlanets, Planet **planets,
         } // If the row doesn't begin with a tab- it's a new Jerry
         records++; // Increase the number of records
         numOfJerries++; // Increase the number of Jerries
-        // Reallocate memory for the Jerries array
         char *ID = strtok(row, ","); // Get the Jerry ID
         char *orgName = strtok(NULL, ","); // Get the Jerry origin name
         char *planetName = strtok(NULL, ","); // Get the Jerry planet name
         Planet *p = locatePlanet(planetName, planets, numOfPlanets); // Get the planet from the array
         if (!p) { // If the planet doesn't exist
             fclose(file); // Close the file
-            free(ID); // Freeing the memory of the Jerry ID
-            free(orgName); // Freeing the memory of the Jerry origin name
-            free(planetName); // Freeing the memory of the Jerry planet name
             return failure; // Faulty file, return failure
         }
         Origin *org = initOrigin(p, orgName); // Initialize a new origin
+        if(!org) { // If the origin wasn't created
+            fclose(file); // Close the file
+            return memory_error; // Return failure
+        }
         int happiness = atoi(strtok(NULL, ",")); // Get the Jerry happiness
         j = (Jerry *) initJerry(ID, org, happiness); // Initialize a new Jerry
-        appendNode(jerries, (Jerry *) j); // Add the Jerry to the array of Jerries
-        addToHashTable(byID, ID, j); // Add the Jerry to the hash table by ID
-        addToMultiValueHashTable(byPlanet, planetName, j); // Add the Jerry to the hash table by planet
-        //appendCondition(jerriesSorted, (Jerry *) j, compareHappiness);
+        if(!j) { // If the Jerry wasn't created
+            fclose(file); // Close the file
+            return memory_error; // Return failure
+        }
+        s = max(s,appendNode(jerries, (Jerry *) j)); // Add the Jerry to the array of Jerries
+        *jerriesSorted = appendCondition(*jerriesSorted, (Jerry *) j, compareHappiness); // Add the Jerry to the sorted array of Jerries
+        s = max(s,addToHashTable(byID, ID, j)); // Add the Jerry to the hash table by ID
+        s = max(s,addToMultiValueHashTable(byPlanet, planetName, j)); // Add the Jerry to the hash table by planet
 
     } while (!feof(file)); // While the end of the file hasn't been reached
     fclose(file); // Close the file
@@ -165,7 +188,6 @@ Planet *initPlanet(float x, float y, float z,
     // The function allocates memory for a new planet and returns a pointer to it
     Planet *p = (Planet *) malloc(sizeof(Planet)); // Allocate memory for a planet
     if (!p) { // If the allocation failed
-        MemoryError = 1; // Set the memory error flag to true
         free(p); // Free the memory
         return NULL;
     }
@@ -176,7 +198,6 @@ Planet *initPlanet(float x, float y, float z,
 
     char *n = (char *) malloc(sizeof(char) * (strlen(name) + 1)); // Allocate memory for the name
     if (!n) { // If the allocation failed
-        MemoryError = 1; // Set the memory error flag to true
         free(p); // Free the memory of the new planet pointer
         free(n); // Free the memory of the variable created
         return NULL;
@@ -191,14 +212,12 @@ Origin *initOrigin(Planet *planet,
     // The function allocates memory for a new origin and returns a pointer to it
     Origin *p = (Origin *) malloc(sizeof(Origin)); // Allocate memory for an origin
     if (!p) { // If the allocation failed
-        MemoryError = 1; // Set the memory error flag to true
         free(p); // Free the memory
         return NULL;
     }
     p->planet = planet; // Assign the planet to the origin
     char *n = (char *) malloc(sizeof(char) * (strlen(dimName) + 1)); // Allocate memory for the dimension name
     if (!n) { // If the allocation failed
-        MemoryError = 1; // Set the memory error flag to true
         free(p); // Free the memory of the new origin pointer
         free(n); // Free the memory of the variable created
         return NULL;
@@ -218,14 +237,12 @@ initPc(float amount, char *name) { // A function that initializes a PhysicalChar
     PhysicalCharacteristics *p = (PhysicalCharacteristics *) malloc(sizeof(PhysicalCharacteristics));
     // Allocate memory for a PhysicalCharacteristic
     if (!p) { // If the allocation failed
-        MemoryError = 1; // Set the memory error flag to true
         free(p); // Free the memory
         return NULL;
     }
     p->amount = amount; // Assign the amount to the PhysicalCharacteristic
     char *n = (char *) malloc(sizeof(char) * (strlen(name) + 1)); // Allocate memory for the name
     if (!n) { // If the allocation failed
-        MemoryError = 1; // Set the memory error flag to true
         free(p); // Free the memory of the new PhysicalCharacteristic pointer
         free(n); // Free the memory of the variable created
         return NULL;
@@ -240,7 +257,6 @@ Jerry *initJerry(char *name, Origin *org,
     // The function allocates memory for a new Jerry and returns a pointer to it
     Jerry *newInstance = (Jerry *) malloc(sizeof(Jerry)); // Allocate memory for a Jerry
     if (!newInstance) { // If the allocation failed
-        MemoryError = 1; // Set the memory error flag to true
         free(newInstance); // Free the memory of the new Jerry
         return NULL;
     }
@@ -252,7 +268,6 @@ Jerry *initJerry(char *name, Origin *org,
     }
     char *n = (char *) malloc(sizeof(char) * (strlen(name) + 1)); // Allocate memory for the name
     if (!n) { // If the allocation failed
-        MemoryError = 1; // Set the memory error flag to true
         free(newInstance); // Free the memory of the new Jerry pointer
         free(n); // Free the memory of the variable created
         return NULL; // Return a blank Jerry as NULL
@@ -323,7 +338,6 @@ int doesJerryHavePc(char *name, Jerry *j) {
 
     char *upper_name = strupr(name); // Convert the name to uppercase
     if (!upper_name) { // If the allocation failed
-        MemoryError = 1; // Set the memory error flag to true
         free(upper_name); // Free the memory of the new name pointer
         return -1;
     }
@@ -331,7 +345,6 @@ int doesJerryHavePc(char *name, Jerry *j) {
         char *upper_j_name = strupr(j->pcs[i]->name); // Convert the name of the PhysicalCharacteristic to uppercase
         // And allocates memory for it
         if (!upper_j_name) { // If the allocation failed
-            MemoryError = 1; // Set the memory error flag to true
             free(upper_name); // Free the memory of the uppercase name pointer
             free(upper_j_name); // Free the memory of the new uppercase PC name pointer
             return -1;
@@ -435,17 +448,16 @@ status printJerriesPcs(Element e) { // A function that prints the PhysicalCharac
         return failure; // Exit function
     } else { // If the Jerry has PhysicalCharacteristics
         printf("Jerry's physical Characteristics available : \n\t");
-    }
-    for (int i = 0; i < j->numOfPcs; i++) { // For each PhysicalCharacteristic in the Jerry's array
-        printf("%s : %.2f ", j->pcs[i]->name,
-               j->pcs[i]->amount); // Print the name and amount of the PhysicalCharacteristic
-        if (j->numOfPcs > 1 &&
-            i != j->numOfPcs - 1) { // If the Jerry has more than one PhysicalCharacteristic, and it's not the last one
-            printf(", "); // Print a comma
+        for (int i = 0; i < j->numOfPcs; i++) { // For each PhysicalCharacteristic in the Jerry's array
+            printf("%s : %.2f ", j->pcs[i]->name,
+                   j->pcs[i]->amount); // Print the name and amount of the PhysicalCharacteristic
+            if (j->numOfPcs > 1 &&
+                i != j->numOfPcs - 1) { // If the Jerry has more than one PhysicalCharacteristic, and it's not the last one
+                printf(", "); // Print a comma
+            }
         }
     }
     return success;
-    printf("\n"); // Print a new line
 }
 
 
@@ -489,12 +501,13 @@ status destroyJerry(Element e) { // A function that destroys a Jerry
     if (!p) return failure; // If the Jerry is NULL, return failure
     free(p->ID); // Freeing the ID
     destroyOrigin(p->org); // Destroying the origin
-    status *flag = success; // Setting the flag to true
+    status flag = success; // Setting the flag to true
     for (int i = 0; i < p->numOfPcs; i++) { // Freeing all the physical characteristics
-        *flag = destroyPc(p->pcs[i]); // Destroying the physical characteristic
+        flag = max(destroyPc(p->pcs[i]),flag); // Destroying the physical characteristic
     }
     free(p->pcs); // Freeing the array of physical characteristics
     free(p); // Freeing the Jerry
+    return flag;
 }
 
 #endif

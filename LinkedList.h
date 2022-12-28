@@ -7,11 +7,11 @@ LinkedList createLinkedList(FreeFunction destroyNode, PrintFunction printNode, E
 
 bool isEmpty(LinkedList l);
 
-status destroyList(LinkedList l);
+status destroyList(Element l);
 
 status appendNode(LinkedList l, Element toAdd);
 
-status appendCondition(LinkedList l, Element toAdd, EqualFunction cmp);
+LinkedList appendCondition(LinkedList l, Element toAdd, EqualFunction cmp);
 
 status deleteNode(LinkedList l, Element toDelete);
 
@@ -23,11 +23,16 @@ Element getData(LinkedList l);
 
 LinkedList getNext(LinkedList l);
 
+status updateData(LinkedList l, UpdateFunction update);
+
 int getLengthList(LinkedList l);
 
 Element searchByKeyInList(LinkedList l, Element key);
 
-status setDataByIndex(LinkedList l, int index, Element data);
+Element searchClosest(LinkedList l, float value, char *key, CompareFunction compareFunction);
+
+
+status setDataByIndex(LinkedList l, float value_to_compare, char *nameOfValue, CompareFunction compareFunction);
 
 
 

@@ -9,7 +9,7 @@ typedef enum e_bool {
     false, true
 } bool;
 typedef enum e_status {
-    success, failure
+    success, failure, memory_error
 } status;
 
 typedef void *Element;
@@ -26,5 +26,12 @@ typedef bool(*EqualFunction)(Element, Element);
 
 char *strupr(char *origin); // A function that converts a string to uppercase
 
+typedef status(*UpdateFunction)(Element);
+
+typedef float(*CompareFunction)(Element, float, char*);
+
+int min(int a, int b);
+
+int max(int a, int b);
 
 #endif /* DEFS_H_ */
