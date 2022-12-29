@@ -7,7 +7,6 @@
 #include <string.h>
 
 
-#define debug
 
 #define BUFFER 300
 
@@ -145,7 +144,7 @@ status adjustThePictureSettingsOn(Element e) {
     return success;
 }
 
-#ifndef debug
+#ifdef debug
 status printJerries(LinkedList jerries) { // A function that prints all the Jerries
     for (int i = 1; i <= numOfJerries; i++) { // For each Jerry
         printJerryInfo((Jerry *) getDataByIndex(jerries, i)); // Print the Jerry
@@ -163,10 +162,48 @@ bool compareIntValue(Element a, Element b) {
     return *(int *) a < *(int *) b;
 }
 
+#define debug
 
 int main() {
-#ifdef debug
+#ifndef debug
+    LinkedList l = createLinkedList(destroyString, printString, compareString, copyString_deep);
+    appendCondition(l, "Hello3", compareStringValue);
+    appendCondition(l, "Hello2", compareStringValue);
+    appendCondition(l, "Hello1", compareStringValue);
+    appendCondition(l, "Hello0", compareStringValue);
+    appendNode(l, "Hello4");
+//    appendNode(l, "Hello1");
+//    appendNode(l, "Hello2");
+//    appendNode(l, "Hello3");
 
+//    appendNode(l, "!");
+
+//    printf("The status for deleting World is %d\n", deleteNode(&l, "World"));
+    printf("Pointer before: %p\n", &l);
+//    deleteNode(l,"World");
+    status s=success;
+    s=max(s,deleteNode(l,"Hello4"));
+    if(s == empty) l=NULL;
+    s=max(s,deleteNode(l,"Hello3"));
+    if(s == empty) l=NULL;
+    s=max(s,deleteNode(l,"Hello2"));
+    if(s == empty) l=NULL;
+    s=max(s,deleteNode(l,"Hello1"));
+    if(s == empty) l=NULL;
+    s=max(s,deleteNode(l,"Hello0"));
+    if(s == empty) l=NULL;
+    printf("Pointer after: %p\n", &l);
+    displayList(l);
+    destroyList(l);
+//    if(deleteNode(&l,"World")== empty){
+//        l=NULL;
+//    }else displayList(l);
+//    if(deleteNode(&l,"Hello")== empty){
+//        l=NULL;
+//    }else displayList(l);
+//    destroyList(l);
+#endif
+#ifdef debug
 
     int numOfJerries = 0, numOfPlanets = 4;
     Planet **planets = createPlanetArray(numOfPlanets);
@@ -197,11 +234,14 @@ int main() {
     if (!byPlanet) return memory_error;
 
     status s = success;
-    s = max(readFromConfig("../configuration_file.txt", numOfPlanets, planets, jerries, &byHappiness, &numOfJerries,
+    s = max(readFromConfig("../configuration_file.txt", numOfPlanets, planets, jerries, byHappiness, &numOfJerries,
                            byID, byPC,
                            byPlanet), s); // Read the configuration file
 
+//    deleteNode(&byHappiness, getData(jerries));
+//    removeFromHashTable(byID, "6e45");
     Jerry *saddest = NULL;
+//    s=memory_error;
     char c = '0'; // A variable for the user's choice
     while (c != '9' && s != memory_error) { // While the user didn't choose to exit
 //        if (MemoryError) { // If there was a memory error
@@ -255,8 +295,7 @@ int main() {
                 scanf("%d", &happiness);
                 j = initJerry(id, initOrigin(p, dimension), happiness);
                 appendNode(jerries, j);
-                byHappiness = appendCondition(byHappiness, j, compareHappiness);
-                //appendCondition(byHappiness, j, compareHappiness);
+                appendCondition(byHappiness, j, compareHappiness);
                 addToHashTable(byID, j->ID, j);
                 addToMultiValueHashTable(byPlanet, j->org->planet->name, j);
                 printJerryInfo(j);
@@ -341,6 +380,9 @@ int main() {
                     s = max(s, removeFromMultiValueHashTable(byPC, j4->pcs[i]->name, j4));
                 }
                 s = max(s, deleteNode(byHappiness, j4));
+                if(s==empty){
+
+                }
                 s = max(s, deleteNode(jerries, j4));
                 printf("Rick thank you for using our daycare service ! Your Jerry awaits ! \n");
                 break;
@@ -382,12 +424,19 @@ int main() {
                 char *saddestID = saddest->ID;
                 s = max(s, printJerryInfo(saddest));
                 s = max(s, removeFromHashTable(byID, saddestID));
+                printf("Remove from byID %d \n", s);
                 s = max(s, removeFromMultiValueHashTable(byPlanet, saddest->org->planet->name, saddest));
+                printf("Remove from saddest %d \n", s);
+
                 for (int i = 0; i < saddest->numOfPcs; i++) {
-                    removeFromMultiValueHashTable(byPC, saddest->pcs[i]->name, saddest);
+                    s=max(s,removeFromMultiValueHashTable(byPC, saddest->pcs[i]->name, saddest));
+                    printf("Remove from PC by %s %d \n",saddestID ,s);
+
                 }
-                s = max(s, deleteNode(jerries, saddest));
                 s = max(s, deleteNode(byHappiness, saddest));
+                printf("Remove from byHappiness %d \n", s);
+                s = max(s, deleteNode(jerries, saddest));
+                printf("Remove from jerries %d \n", s);
                 //
                 break;
 
@@ -464,9 +513,9 @@ int main() {
                 break;
 
             case '9': // If the user chose to
-                s = max(destroyHashTable(byID), s);
                 s = max(destroyMultiValueHashTable(byPC), s);
                 s = max(destroyMultiValueHashTable(byPlanet), s);
+                s = max(destroyHashTable(byID), s);
                 for (int i = 0; i < numOfPlanets; i++) {
                     s = max(destroyPlanet(planets[i]), s);
                 }
@@ -485,7 +534,7 @@ int main() {
                 printf("Rick this option is not known to the daycare ! \n");
         }
     }
-#endif
+
     if (s == memory_error) { // If there was a memory error
         // free all the allocated memory
         // exit the program
@@ -499,8 +548,11 @@ int main() {
         free(planets);
         destroyList(byHappiness);
         destroyList(jerries);
+//        free(byHappiness);
+//        free(jerries);
         return 1;
     }
+#endif
     return 0;
 }
 

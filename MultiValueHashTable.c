@@ -66,8 +66,7 @@ status destroyMultiValueHashTable(MultiValueHashTable mvht) {
 status addToMultiValueHashTable(MultiValueHashTable mvht, Element key, Element value) {
     if (!mvht || !key || !value) return failure;
     LinkedList l = (LinkedList) getValue((KeyValuePair) lookupInHashTable(mvht->table, key));
-
-    if (isEmpty(l)) {
+    if (l == NULL) {//isEmpty(l)
         l = createLinkedList(mvht->freeValue, mvht->printValue, mvht->equalValue, mvht->copyValue);
         if (!l) return memory_error;
         appendNode(l, value);
@@ -80,7 +79,7 @@ status addToMultiValueHashTable(MultiValueHashTable mvht, Element key, Element v
 
 LinkedList searchByKeyInTable(MultiValueHashTable m, Element key) {
     LinkedList l = (LinkedList) getValue(lookupInHashTable(m->table, key));
-    return l ? l : NULL;
+    return isEmpty(l) ? NULL : l;
 }
 
 Element lookupInMultiValueHashTable(MultiValueHashTable mvht, Element key, Element value) {
@@ -92,11 +91,15 @@ Element lookupInMultiValueHashTable(MultiValueHashTable mvht, Element key, Eleme
 
 status removeFromMultiValueHashTable(MultiValueHashTable mvht, Element key, Element value) {
     LinkedList l = searchByKeyInTable(mvht, key);
-    if (!l) return failure;
+    if (l == NULL) return failure;
     status s = deleteNode(l, value);
-    if (getLengthList(l) == 0) {
-        s = max(s,destroyList(l));
-        s = max(s,removeFromHashTable(mvht->table, key));
+    if (s == empty) {
+        free(l);
+        l = NULL;
+    }
+    printf("Length: %d\n", getLengthList(l));
+    if (l == NULL) {
+        s = max(s, removeFromHashTable(mvht->table, key));
     }
     return s;
 }
@@ -104,6 +107,6 @@ status removeFromMultiValueHashTable(MultiValueHashTable mvht, Element key, Elem
 status displayMultiValueHashElementsByKey(MultiValueHashTable mvht, Element key) {
     LinkedList l = searchByKeyInTable(mvht, key);
     if (!l) return failure;
-    status s =displayList(l);
+    status s = displayList(l);
     return s;
 }

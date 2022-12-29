@@ -86,7 +86,7 @@ char *deepCopyString(char *a) {
 }
 
 status readFromConfig(char *url, int numOfPlanets, Planet **planets,
-                      LinkedList jerries, LinkedList *jerriesSorted, int *numOfJerries, hashTable byID,
+                      LinkedList jerries, LinkedList jerriesSorted, int *numOfJerries, hashTable byID,
                       MultiValueHashTable byPC, MultiValueHashTable byPlanet) { // A function that reads the config file
     // The program takes in a number of planets and a file name
     // The program reads the config file and sets the number of planets and Jerries,
@@ -172,7 +172,7 @@ status readFromConfig(char *url, int numOfPlanets, Planet **planets,
             return memory_error; // Return failure
         }
         s = max(s,appendNode(jerries, (Jerry *) j)); // Add the Jerry to the array of Jerries
-        *jerriesSorted = appendCondition(*jerriesSorted, (Jerry *) j, compareHappiness); // Add the Jerry to the sorted array of Jerries
+        s = max(s,appendCondition(jerriesSorted, (Jerry *) j, compareHappiness)); // Add the Jerry to the sorted array of Jerries
         s = max(s,addToHashTable(byID, ID, j)); // Add the Jerry to the hash table by ID
         s = max(s,addToMultiValueHashTable(byPlanet, planetName, j)); // Add the Jerry to the hash table by planet
 

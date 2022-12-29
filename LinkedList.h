@@ -11,7 +11,7 @@ status destroyList(Element l);
 
 status appendNode(LinkedList l, Element toAdd);
 
-LinkedList appendCondition(LinkedList l, Element toAdd, EqualFunction cmp);
+status appendCondition(LinkedList l, Element toAdd, EqualFunction cmp);
 
 status deleteNode(LinkedList l, Element toDelete);
 

@@ -137,5 +137,5 @@ status printAllJerries(Element l);
 bool compareHappiness(Element a, Element b);
 
 status readFromConfig(char *url, int numOfPlanets, Planet **planets,
-                      LinkedList jerries, LinkedList *jerriesSorted, int *numOfJerries,
+                      LinkedList jerries, LinkedList jerriesSorted, int *numOfJerries,
                       hashTable byID, MultiValueHashTable byPC, MultiValueHashTable byPlanet);

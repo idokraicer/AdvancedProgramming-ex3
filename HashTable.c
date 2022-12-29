@@ -52,7 +52,7 @@ status destroyHashTable(hashTable h) {
         LinkedList l = (LinkedList) h->table[i];
         if (l) {
             s = max(s, destroyList(l));
-//            free(l);
+            l=NULL;
         }
     }
     free(h->table);
@@ -96,18 +96,15 @@ status removeFromHashTable(hashTable h, Element key) {
     if (!h->table[index]) {
         return failure;
     }
-    status s = deleteNode(h->table[index], key);
-    if (getLengthList(h->table[index]) == 0) {
-        s = max(s, destroyList(h->table[index]));
-//        free(h->table[index]);
-        h->table[index] = NULL;
-    }
+    LinkedList l = (h->table[index]);
+    status s = deleteNode( l, key);
+    if(s == empty) {free(h->table[index]) ;h->table[index] = NULL;}
     return s;
 }
 
 status displayHashElements(hashTable h) {
     if (!h) return failure;
-    status s;
+    status s = success;
     for (int i = 0; i < h->size; i++) {
         printf("Index %d, Length: %d \n", i, getLengthList(h->table[i]));
         s = displayList((LinkedList) h->table[i]);

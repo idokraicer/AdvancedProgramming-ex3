@@ -47,6 +47,8 @@ status destroyKeyValuePair(Element e) {
     s = max(s,k->destroyKey(k->key));
 
     free(k);
+    e=NULL;
+
     return s;
 }
 
