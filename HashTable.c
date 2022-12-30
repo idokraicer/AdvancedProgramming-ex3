@@ -47,17 +47,29 @@ hashTable createHashTable(CopyFunction copyKey, FreeFunction freeKey, PrintFunct
 }
 
 status destroyHashTable(hashTable h) {
+
     status s = success;
     for (int i = 0; i < h->size; i++) {
+        if(h->table[i] == NULL) {
+            printf("Found an empty list at index %d\n", i);
+            free(h->table[i]);
+            continue;
+        }
         LinkedList l = (LinkedList) h->table[i];
-        if (l) {
+        if (l != NULL) {
             s = max(s, destroyList(l));
-            l=NULL;
+            if(s == failure)printf("Failed doing it at index %d\n",i);
+            if(s == memory_error)printf("Memory error at index %d\n",i);
+            if(s == empty){printf("Empty list at index %d\n",i); h->table[i] =NULL;}
+            if(s == success)printf("Success at index %d\n",i);
+            h->table[i]=NULL;
         }
     }
     free(h->table);
+    h->table=NULL;
     free(h);
-    return s;
+    h=NULL;
+    return s == empty ? success : s;
 }
 
 status addToHashTable(hashTable h, Element key, Element value) {
@@ -77,7 +89,7 @@ status addToHashTable(hashTable h, Element key, Element value) {
         h->table[index] = (LinkedList) createLinkedList(destroyKeyValuePair, displayKeyValuePair,
                                                         h->equalKey, copyKeyValuePair);
         if (!h->table[index]) { return memory_error; }//Memory Error
-        return appendNode((LinkedList) h->table[index], (KeyValuePair) kvp);;
+        return appendNode((LinkedList) h->table[index], (KeyValuePair) kvp);
     }
     return appendNode(h->table[index], kvp);
 }
@@ -93,12 +105,13 @@ Element lookupInHashTable(hashTable h, Element key) {
 
 status removeFromHashTable(hashTable h, Element key) {
     int index = h->transformIntoNumber(key) % h->size;
-    if (!h->table[index]) {
-        return failure;
+    if (h->table[index] == NULL) {
+        return success;
     }
     LinkedList l = (h->table[index]);
     status s = deleteNode( l, key);
-    if(s == empty) {free(h->table[index]) ;h->table[index] = NULL;}
+    if(s == empty) {h->table[index] = NULL;}
+
     return s;
 }
 
@@ -106,7 +119,6 @@ status displayHashElements(hashTable h) {
     if (!h) return failure;
     status s = success;
     for (int i = 0; i < h->size; i++) {
-        printf("Index %d, Length: %d \n", i, getLengthList(h->table[i]));
         s = displayList((LinkedList) h->table[i]);
         if (h->table[i]) printf("\n");
     }

@@ -35,23 +35,25 @@ LinkedList createLinkedList(FreeFunction destroyNode, PrintFunction printNode, E
 status destroyList(Element e) {
     LinkedList l = (LinkedList) e;
 //    LinkedList head = l->head;
-    if (!l) { return empty; }
+    if (l == NULL) { return empty;}
     status flag = success;
-
-    if (!l->next) {
+    if(!l->data){
+        free(l);
+        flag = empty;
+    }
+    if (l->next == NULL) {
         flag = l->destroyNode(l->data);
         free(l);
-        if (flag == success) return empty;
-        else return failure;
+        return empty;
     }
-    while (l) {
+    while (l != NULL) {
         LinkedList temp = l;
         l = l->next;
         flag = max(temp->destroyNode(temp->data), flag);
+        if (flag == failure) printf("Oops\n");
         temp->data = NULL;
         free(temp);
         temp = NULL;
-        if (flag != success) return failure;
     }
     l = NULL;
     e = NULL;
@@ -146,6 +148,7 @@ status appendCondition(LinkedList l, Element toAdd, EqualFunction cmp) {
 }
 
 status displayList(Element e) {
+    if(e == NULL) return failure;
     LinkedList l = (LinkedList) e;
     if (l == NULL) {
         return failure; // failure
@@ -166,7 +169,7 @@ status doNothing2(Element e) {
 }
 
 status deleteNode(LinkedList l, Element toDelete) {
-    if (!l) return failure;
+    if (l == NULL) return failure;
     LinkedList curr = l->head;
     if (!curr) return failure;
     if (!curr->data) return failure;
@@ -176,6 +179,7 @@ status deleteNode(LinkedList l, Element toDelete) {
             l->head = NULL;
             curr->data = NULL;
             free(l);
+            l=NULL;
             printf("Empty on %s \n", (char*)toDelete);
             return empty;
         }
@@ -202,7 +206,6 @@ status deleteNode(LinkedList l, Element toDelete) {
             temp->destroyNode(temp->data);
             free(temp);
             temp = NULL;
-            printf("Im here dn\n");
             return success;
         }
         else {

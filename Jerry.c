@@ -119,7 +119,7 @@ status readFromConfig(char *url, int numOfPlanets, Planet **planets,
         if (!planet) { // If the planet doesn't exist
             records++; // Increase the number of records
             planets[records - 1] = (Planet *) initPlanet(x, y, z, name);
-            if(!planets[records - 1]) { // If the planet wasn't created
+            if (!planets[records - 1]) { // If the planet wasn't created
                 fclose(file); // Close the file
                 return memory_error; // Return failure
             }
@@ -140,12 +140,12 @@ status readFromConfig(char *url, int numOfPlanets, Planet **planets,
             float amount = atof(strtok(NULL, ":"));  // Get the Physical characteristic amount
 
             PhysicalCharacteristics *pc = initPc(amount, id); // Initialize a new Physical characteristic
-            if(!pc) { // If the Physical characteristic wasn't created
+            if (!pc) { // If the Physical characteristic wasn't created
                 fclose(file); // Close the file
                 return memory_error; // Return failure
             }
             addPcToJerry(pc, j);
-            addToMultiValueHashTable(byPC, pc->name, j);
+            addToMultiValueHashTable(byPC, (char *) pc->name, j);
 
             // Add the Physical characteristic to the Jerry
             continue; // Continue to the next iteration
@@ -161,20 +161,21 @@ status readFromConfig(char *url, int numOfPlanets, Planet **planets,
             return failure; // Faulty file, return failure
         }
         Origin *org = initOrigin(p, orgName); // Initialize a new origin
-        if(!org) { // If the origin wasn't created
+        if (!org) { // If the origin wasn't created
             fclose(file); // Close the file
             return memory_error; // Return failure
         }
         int happiness = atoi(strtok(NULL, ",")); // Get the Jerry happiness
         j = (Jerry *) initJerry(ID, org, happiness); // Initialize a new Jerry
-        if(!j) { // If the Jerry wasn't created
+        if (!j) { // If the Jerry wasn't created
             fclose(file); // Close the file
             return memory_error; // Return failure
         }
-        s = max(s,appendNode(jerries, (Jerry *) j)); // Add the Jerry to the array of Jerries
-        s = max(s,appendCondition(jerriesSorted, (Jerry *) j, compareHappiness)); // Add the Jerry to the sorted array of Jerries
-        s = max(s,addToHashTable(byID, ID, j)); // Add the Jerry to the hash table by ID
-        s = max(s,addToMultiValueHashTable(byPlanet, planetName, j)); // Add the Jerry to the hash table by planet
+        s = max(s, appendNode(jerries, (Jerry *) j)); // Add the Jerry to the array of Jerries
+        s = max(s, appendCondition(jerriesSorted, (Jerry *) j,
+                                   compareHappiness)); // Add the Jerry to the sorted array of Jerries
+        s = max(s, addToHashTable(byID, ID, j)); // Add the Jerry to the hash table by ID
+        s = max(s, addToMultiValueHashTable(byPlanet, planetName, j)); // Add the Jerry to the hash table by planet
 
     } while (!feof(file)); // While the end of the file hasn't been reached
     fclose(file); // Close the file
@@ -335,7 +336,6 @@ int doesJerryHavePc(char *name, Jerry *j) {
     if (j->numOfPcs == 0) { // If the Jerry has no PhysicalCharacteristics
         return -1;
     }
-
     char *upper_name = strupr(name); // Convert the name to uppercase
     if (!upper_name) { // If the allocation failed
         free(upper_name); // Free the memory of the new name pointer
@@ -452,7 +452,8 @@ status printJerriesPcs(Element e) { // A function that prints the PhysicalCharac
             printf("%s : %.2f ", j->pcs[i]->name,
                    j->pcs[i]->amount); // Print the name and amount of the PhysicalCharacteristic
             if (j->numOfPcs > 1 &&
-                i != j->numOfPcs - 1) { // If the Jerry has more than one PhysicalCharacteristic, and it's not the last one
+                i !=
+                j->numOfPcs - 1) { // If the Jerry has more than one PhysicalCharacteristic, and it's not the last one
                 printf(", "); // Print a comma
             }
         }
@@ -467,6 +468,8 @@ status printJerryInfo(Element e) { // A function that prints the information of 
     // Print the ID and happiness level of the Jerry
     printOrigin(j->org); // Print the origin of the Jerry
     printJerriesPcs(j); // Print the PhysicalCharacteristics of the Jerry
+    printf("\n");
+
 }
 
 status printAllJerries(Element e) {
@@ -503,7 +506,7 @@ status destroyJerry(Element e) { // A function that destroys a Jerry
     destroyOrigin(p->org); // Destroying the origin
     status flag = success; // Setting the flag to true
     for (int i = 0; i < p->numOfPcs; i++) { // Freeing all the physical characteristics
-        flag = max(destroyPc(p->pcs[i]),flag); // Destroying the physical characteristic
+        flag = max(destroyPc(p->pcs[i]), flag); // Destroying the physical characteristic
     }
     free(p->pcs); // Freeing the array of physical characteristics
     free(p); // Freeing the Jerry

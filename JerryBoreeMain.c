@@ -82,7 +82,11 @@ bool comparePlanet(Element a, Element b) {
 
 bool comparePC(Element a, Element b) {
     Jerry *j = (Jerry *) a;
-    return doesJerryHavePc((char *) b, j) > -1;
+    if(j == NULL) return false;
+    char *name = (char *) b;
+    int c =doesJerryHavePc(name, j);
+    printf("Name got %s, condition: %d, jerrie's ID: %s\n", name, c, j->ID);
+    return (c >= 0);
 }
 
 Element copyPlanet_shallow(Element p) {
@@ -168,9 +172,9 @@ int main() {
 #ifndef debug
     LinkedList l = createLinkedList(destroyString, printString, compareString, copyString_deep);
     appendCondition(l, "Hello3", compareStringValue);
-    appendCondition(l, "Hello2", compareStringValue);
-    appendCondition(l, "Hello1", compareStringValue);
-    appendCondition(l, "Hello0", compareStringValue);
+//    appendCondition(l, "Hello2", compareStringValue);
+//    appendCondition(l, "Hello1", compareStringValue);
+//    appendCondition(l, "Hello0", compareStringValue);
     appendNode(l, "Hello4");
 //    appendNode(l, "Hello1");
 //    appendNode(l, "Hello2");
@@ -193,7 +197,9 @@ int main() {
     s=max(s,deleteNode(l,"Hello0"));
     if(s == empty) l=NULL;
     printf("Pointer after: %p\n", &l);
-    displayList(l);
+//    displayList(l);
+    destroyList(l);
+    l=NULL;
     destroyList(l);
 //    if(deleteNode(&l,"World")== empty){
 //        l=NULL;
@@ -354,10 +360,9 @@ int main() {
                     printf("The information about his %s not available to the daycare ! \n", pc3);
                     break;
                 }
-                removePcFromJerry(pc3, j3);
                 removeFromMultiValueHashTable(byPC, pc3, j3);
+                removePcFromJerry(pc3, j3);
                 printJerryInfo(j3);
-                printf("\n");
                 break;
 
             case '4': // If the user chose to
@@ -513,15 +518,23 @@ int main() {
                 break;
 
             case '9': // If the user chose to
-                s = max(destroyMultiValueHashTable(byPC), s);
-                s = max(destroyMultiValueHashTable(byPlanet), s);
-                s = max(destroyHashTable(byID), s);
+                s=success;
+                s = max(destroyMultiValueHashTable(byPC), -1);
+                printf("By PC: %d \n", s);
+                s = max(destroyMultiValueHashTable(byPlanet), -1);
+                printf("By Planet: %d \n", s);
+                s = max(destroyHashTable(byID), -1);
+                printf("By ID: %d \n", s);
+                s = max(destroyList(byHappiness), -1);
+                printf("By happiness: %d \n", s);
+                s = max(destroyList(jerries), -1);
+                printf("Jerries: %d \n", s);
                 for (int i = 0; i < numOfPlanets; i++) {
-                    s = max(destroyPlanet(planets[i]), s);
+                    s = max(destroyPlanet(planets[i]), -1);
+                    printf("destroy planet %d: %d \n", i,s);
+
                 }
                 free(planets);
-                s = max(destroyList(byHappiness), s);
-                s = max(destroyList(jerries), s);
 //                free(byHappiness);
 //                free(jerries);
                 if (s == success) {
@@ -540,14 +553,14 @@ int main() {
         // exit the program
         printf("Memory error");
         destroyHashTable(byID);
-        destroyMultiValueHashTable(byPC);
         destroyMultiValueHashTable(byPlanet);
+        destroyMultiValueHashTable(byPC);
+        destroyList(byHappiness);
+        destroyList(jerries);
         for (int i = 0; i < numOfPlanets; i++) {
             destroyPlanet(planets[i]);
         }
         free(planets);
-        destroyList(byHappiness);
-        destroyList(jerries);
 //        free(byHappiness);
 //        free(jerries);
         return 1;

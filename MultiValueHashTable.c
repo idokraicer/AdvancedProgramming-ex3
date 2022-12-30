@@ -58,15 +58,15 @@ createMultiValueHashTable(CopyFunction copyKey, FreeFunction freeKey, PrintFunct
 
 
 status destroyMultiValueHashTable(MultiValueHashTable mvht) {
-    destroyHashTable(mvht->table);
+    status s =destroyHashTable(mvht->table);
     free(mvht);
-    return success;
+    return s;
 }
 
 status addToMultiValueHashTable(MultiValueHashTable mvht, Element key, Element value) {
     if (!mvht || !key || !value) return failure;
     LinkedList l = (LinkedList) getValue((KeyValuePair) lookupInHashTable(mvht->table, key));
-    if (l == NULL) {//isEmpty(l)
+    if (l == NULL) {
         l = createLinkedList(mvht->freeValue, mvht->printValue, mvht->equalValue, mvht->copyValue);
         if (!l) return memory_error;
         appendNode(l, value);
@@ -92,14 +92,12 @@ Element lookupInMultiValueHashTable(MultiValueHashTable mvht, Element key, Eleme
 status removeFromMultiValueHashTable(MultiValueHashTable mvht, Element key, Element value) {
     LinkedList l = searchByKeyInTable(mvht, key);
     if (l == NULL) return failure;
-    status s = deleteNode(l, value);
+    status s = deleteNode(l, key);
     if (s == empty) {
-        free(l);
         l = NULL;
     }
-    printf("Length: %d\n", getLengthList(l));
-    if (l == NULL) {
-        s = max(s, removeFromHashTable(mvht->table, key));
+    if (s == empty) {
+        s = max(-1, removeFromHashTable(mvht->table, key));
     }
     return s;
 }

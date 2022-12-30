@@ -42,11 +42,20 @@ status destroyKeyValuePair(Element e) {
         return failure;
     }
     KeyValuePair k = (KeyValuePair) e;
-    status s;
-    s= k->destroyValue(k->value);
-    s = max(s,k->destroyKey(k->key));
-
+    if(k == NULL) return failure;
+    status s=success;
+    if(k->value != NULL) s= k->destroyValue(k->value);
+    printf("Status: %d\n",s);
+    if(s == empty){
+        k->value=NULL;
+    }
+    s = max(-1,k->destroyKey(k->key));
+    printf("Status: %d\n",s);
+    if(s == empty){
+        k->key=NULL;
+    }
     free(k);
+    k=NULL;
     e=NULL;
 
     return s;
