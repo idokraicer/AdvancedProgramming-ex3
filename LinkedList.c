@@ -66,8 +66,8 @@ bool notLast(LinkedList n) {
 }
 
 bool isEmpty(LinkedList l) {
-    if (!l) return true;
-    else if (!l->data) return true;
+    if (l==NULL) return true;
+    else if (l->data==NULL) return true;
     else return false;
 }
 
@@ -172,12 +172,14 @@ status deleteNode(LinkedList l, Element toDelete) {
     if (l == NULL) return failure;
     LinkedList curr = l->head;
     if (!curr) return failure;
-    if (!curr->data) return failure;
+    if (!curr->data) {free(l);return empty;};
     if (curr->compare(curr->data, toDelete)) { // if head is the node to delete
         if(curr->next == NULL){ // if head is the only node
             curr->destroyNode(curr->data);
             l->head = NULL;
             curr->data = NULL;
+            curr->next=NULL;
+            curr->prev=NULL;
             free(l);
             l=NULL;
             return empty;
@@ -191,13 +193,13 @@ status deleteNode(LinkedList l, Element toDelete) {
         temp->destroyNode(temp->data);
         free(temp);
         temp = NULL;
+        printf("Inside deleteNode\n");
         return success;
     } else {
         while(curr != NULL && !curr->compare(curr->data, toDelete)) {
             curr = curr->next;
         }
         if(!curr) return failure;
-//        if(!curr->compare(curr->data, toDelete)) return failure;
         if(curr->next != NULL) {
             LinkedList temp = curr;
             curr->next->prev = temp->prev;
@@ -209,6 +211,7 @@ status deleteNode(LinkedList l, Element toDelete) {
         }
         else {
             LinkedList temp = curr;
+            curr->next = NULL;
             curr->prev->next = NULL;
             temp->destroyNode(temp->data);
             free(temp);
@@ -220,7 +223,8 @@ status deleteNode(LinkedList l, Element toDelete) {
 }
 
 Element getData(LinkedList l) {
-    if (!l) return NULL;
+    if (l==NULL) return NULL;
+    if(l->data == NULL) return NULL;
     return l->head->data;
 }
 
@@ -256,17 +260,23 @@ Element searchClosest(LinkedList l, float value, char *key, CompareFunction comp
     if (!l->next) return l->data;
     LinkedList closest = NULL, curr;
     float closestValueFromKey = compareFunction(l->data, value, key);
+    closest = l;
     curr = l->next;
-    while (curr) {
+    while (curr != NULL) {
         float diff = compareFunction(curr->data, value, key);
         if (diff == 0.0) return curr->data;
         if (diff == -1.0) continue;
+        if(diff == closestValueFromKey) {
+            curr= curr->next;
+            continue;
+        }
         if (diff < closestValueFromKey) {
             closest = curr;
             closestValueFromKey = diff;
         }
         curr = curr->next;
     }
+    if(closest == NULL) return NULL;
     return closest->data;
 }
 

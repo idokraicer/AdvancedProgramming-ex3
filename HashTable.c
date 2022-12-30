@@ -82,7 +82,7 @@ status addToHashTable(hashTable h, Element key, Element value) {
         return memory_error;
     }
     int index = h->transformIntoNumber(key) % h->size;
-    if (!h->table[index]) {
+    if (h->table[index] == NULL) {
         h->table[index] = (LinkedList) createLinkedList(destroyKeyValuePair, displayKeyValuePair,
                                                         h->equalKey, copyKeyValuePair);
         if (!h->table[index]) { return memory_error; }//Memory Error
@@ -93,7 +93,7 @@ status addToHashTable(hashTable h, Element key, Element value) {
 
 Element lookupInHashTable(hashTable h, Element key) {
     int index = h->transformIntoNumber(key) % h->size;
-    if (!h->table[index]) {
+    if (h->table[index] == NULL) {
         return NULL;
     }
     return searchByKeyInList((LinkedList) h->table[index], key);

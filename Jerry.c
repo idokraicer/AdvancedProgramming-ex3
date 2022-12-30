@@ -445,7 +445,7 @@ status removePcFromJerry(char *name, Jerry *j) { // A function that removes a Ph
 status printJerriesPcs(Element e) { // A function that prints the PhysicalCharacteristics of a Jerry
     Jerry *j = (Jerry *) e;
     if (j->numOfPcs == 0) { // If the Jerry has no PhysicalCharacteristics
-        return failure; // Exit function
+        return empty; // Exit function
     } else { // If the Jerry has PhysicalCharacteristics
         printf("Jerry's physical Characteristics available : \n\t");
         for (int i = 0; i < j->numOfPcs; i++) { // For each PhysicalCharacteristic in the Jerry's array
@@ -467,8 +467,8 @@ status printJerryInfo(Element e) { // A function that prints the information of 
     printf("Jerry , ID - %s : \nHappiness level : %d \n", j->ID, j->happiness);
     // Print the ID and happiness level of the Jerry
     printOrigin(j->org); // Print the origin of the Jerry
-    printJerriesPcs(j); // Print the PhysicalCharacteristics of the Jerry
-    printf("\n");
+    status s =printJerriesPcs(j); // Print the PhysicalCharacteristics of the Jerry
+    if(s!=empty) printf("\n");
 
 }
 

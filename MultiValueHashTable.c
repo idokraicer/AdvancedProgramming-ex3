@@ -93,9 +93,12 @@ status removeFromMultiValueHashTable(MultiValueHashTable mvht, Element key, Elem
     LinkedList l = searchByKeyInTable(mvht, key);
     if (l == NULL) return failure;
     status s =success;
+    if(getLengthList(l) == 0) return success;
     if(getLengthList(l) == 1){
+        printf("Length of list is 1\n");
         s = removeFromHashTable(mvht->table, key);
     } else {
+
         s = deleteNode(l, key);
     }
     if (s == empty) {
@@ -106,7 +109,7 @@ status removeFromMultiValueHashTable(MultiValueHashTable mvht, Element key, Elem
 
 status displayMultiValueHashElementsByKey(MultiValueHashTable mvht, Element key) {
     LinkedList l = searchByKeyInTable(mvht, key);
-    if (!l) return failure;
+    if (l==NULL) return failure;
     status s = displayList(l);
     return s;
 }
