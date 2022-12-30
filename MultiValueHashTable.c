@@ -92,12 +92,14 @@ Element lookupInMultiValueHashTable(MultiValueHashTable mvht, Element key, Eleme
 status removeFromMultiValueHashTable(MultiValueHashTable mvht, Element key, Element value) {
     LinkedList l = searchByKeyInTable(mvht, key);
     if (l == NULL) return failure;
-    status s = deleteNode(l, key);
-    if (s == empty) {
-        l = NULL;
+    status s =success;
+    if(getLengthList(l) == 1){
+        s = removeFromHashTable(mvht->table, key);
+    } else {
+        s = deleteNode(l, key);
     }
     if (s == empty) {
-        s = max(-1, removeFromHashTable(mvht->table, key));
+        l = NULL;
     }
     return s;
 }

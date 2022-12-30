@@ -37,9 +37,9 @@ status destroyList(Element e) {
 //    LinkedList head = l->head;
     if (l == NULL) { return empty;}
     status flag = success;
-    if(!l->data){
+    if(l->data == NULL){
         free(l);
-        flag = empty;
+        return empty;
     }
     if (l->next == NULL) {
         flag = l->destroyNode(l->data);
@@ -180,7 +180,6 @@ status deleteNode(LinkedList l, Element toDelete) {
             curr->data = NULL;
             free(l);
             l=NULL;
-            printf("Empty on %s \n", (char*)toDelete);
             return empty;
         }
         // if head is not the only node
@@ -218,106 +217,6 @@ status deleteNode(LinkedList l, Element toDelete) {
         }
     }
     return failure;
-    /*
-    status s = success;
-    LinkedList head = (*l);
-    if (!head || !toDelete) return failure;
-    LinkedList curr = head;
-    if(head->compare(head->data, toDelete)) { // if head is the node to delete
-        if(isEmpty(head->next)) { // if head is the only node
-            s=max(s,head->destroyNode((head)->data));
-            head->data = NULL;
-            free(*l);
-            *l = NULL;
-            return empty;
-            printf("I'm here for some reason\n");
-        }
-        // if head is not the only node
-        curr->head = curr->next;
-        (*l)=(*l)->next;
-        curr->head = head;
-        curr->prev = NULL;
-        s = curr->destroyNode(curr->data);
-        curr->data = NULL;
-        free(curr);
-        curr=NULL;
-
-        return s;
-    }
-    while(!isEmpty(curr) && !curr->compare(curr->data, toDelete)) {
-        curr = curr->next;
-    }
-    if (isEmpty(curr)) return failure;
-    if(curr->compare(curr->data, toDelete)) {
-        if(isEmpty(curr->next)) { // if curr is the last node
-            printf("I'm here \n");
-            curr->prev->next = NULL;
-            s = curr->destroyNode(curr->data);
-            free(curr);
-            curr = NULL;
-            return s;
-        }
-        curr->prev->next = curr->next; // If has before and next nodes
-        curr->next->prev = curr->prev;
-        s = curr->destroyNode(curr->data);
-        free(curr);
-        curr = NULL;
-        return s;
-    }
-//    while (notLast(curr)) {
-//        if (curr->compare(curr->data, toDelete)) {
-//            if (!curr->prev) { // If first
-//                if (!curr->next) { // If only one node
-//                    printf("first only one\n");
-//                    head->head = head;
-//                    s = max(s, head->destroyNode(head->data));
-//                    free(head);
-//                    return s;
-//                } else { // If first but not only one node
-//                    LinkedList temp = curr;
-//                    printf("first not only one\n");
-//                    head->head = curr;
-//                    head->prev = NULL;
-//                    s = max(s, temp->destroyNode(temp->data));
-//                    free(temp);
-//                    return s;
-//                }
-//            } else if (curr->next != NULL) { // if not first and has next
-//                printf("not first and has next \n");
-//                LinkedList temp = curr;
-//                curr->prev->next = curr->next;
-//                curr->next->prev = curr->prev;
-//                s = max(s, head->destroyNode(temp->data));
-//                temp->data = NULL;
-//                free(temp);
-//                printf("Did it not first and has next \n");
-//                return s;
-//            } else { // if last
-//                printf("last \n");
-//                curr->prev->next = NULL;
-//                s = max(s, head->destroyNode(curr->data));
-//                curr->data = NULL;
-//                free(curr);
-//                printf("Did it last \n");
-//
-//                return s;
-//            }
-//        }
-//        curr = curr->next;
-//    }
-//    if (head->compare(head->data, toDelete)) {
-//        if (!head->prev) { // If first
-//            if (!head->next) { // If only one node
-//                head->destroyNode(head);
-//                head->data = NULL;
-//                free(head);
-//                printf("Did it first and only one \n");
-//
-//                return success;
-//            }
-//        }
-//    }
-    return failure;*/
 }
 
 Element getData(LinkedList l) {

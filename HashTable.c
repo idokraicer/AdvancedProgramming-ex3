@@ -51,17 +51,14 @@ status destroyHashTable(hashTable h) {
     status s = success;
     for (int i = 0; i < h->size; i++) {
         if(h->table[i] == NULL) {
-            printf("Found an empty list at index %d\n", i);
             free(h->table[i]);
             continue;
         }
         LinkedList l = (LinkedList) h->table[i];
         if (l != NULL) {
             s = max(s, destroyList(l));
-            if(s == failure)printf("Failed doing it at index %d\n",i);
-            if(s == memory_error)printf("Memory error at index %d\n",i);
-            if(s == empty){printf("Empty list at index %d\n",i); h->table[i] =NULL;}
-            if(s == success)printf("Success at index %d\n",i);
+            if(s == memory_error) return memory_error;
+            if(s == empty){ h->table[i] =NULL;}
             h->table[i]=NULL;
         }
     }
@@ -108,7 +105,7 @@ status removeFromHashTable(hashTable h, Element key) {
     if (h->table[index] == NULL) {
         return success;
     }
-    LinkedList l = (h->table[index]);
+    LinkedList l = h->table[index];
     status s = deleteNode( l, key);
     if(s == empty) {h->table[index] = NULL;}
 

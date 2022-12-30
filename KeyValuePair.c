@@ -45,12 +45,10 @@ status destroyKeyValuePair(Element e) {
     if(k == NULL) return failure;
     status s=success;
     if(k->value != NULL) s= k->destroyValue(k->value);
-    printf("Status: %d\n",s);
     if(s == empty){
         k->value=NULL;
     }
     s = max(-1,k->destroyKey(k->key));
-    printf("Status: %d\n",s);
     if(s == empty){
         k->key=NULL;
     }

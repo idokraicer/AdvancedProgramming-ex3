@@ -7,7 +7,6 @@
 #include <string.h>
 
 
-
 #define BUFFER 300
 
 
@@ -82,10 +81,9 @@ bool comparePlanet(Element a, Element b) {
 
 bool comparePC(Element a, Element b) {
     Jerry *j = (Jerry *) a;
-    if(j == NULL) return false;
+    if (j == NULL) return false;
     char *name = (char *) b;
-    int c =doesJerryHavePc(name, j);
-    printf("Name got %s, condition: %d, jerrie's ID: %s\n", name, c, j->ID);
+    int c = doesJerryHavePc(name, j);
     return (c >= 0);
 }
 
@@ -112,10 +110,10 @@ float absolute(float a) {
     return a > 0 ? a : -a;
 }
 
-float diffPC(Element e, float value, char* key){
+float diffPC(Element e, float value, char *key) {
     Jerry *j = (Jerry *) e;
     int pcIndex = doesJerryHavePc(key, j);
-    if(pcIndex == -1) return -1;
+    if (pcIndex == -1) return -1;
     return absolute(j->pcs[pcIndex]->amount - value);
 }
 
@@ -171,7 +169,7 @@ bool compareIntValue(Element a, Element b) {
 int main() {
 #ifndef debug
     LinkedList l = createLinkedList(destroyString, printString, compareString, copyString_deep);
-    appendCondition(l, "Hello3", compareStringValue);
+//    appendCondition(l, "Hello3", compareStringValue);
 //    appendCondition(l, "Hello2", compareStringValue);
 //    appendCondition(l, "Hello1", compareStringValue);
 //    appendCondition(l, "Hello0", compareStringValue);
@@ -183,24 +181,24 @@ int main() {
 //    appendNode(l, "!");
 
 //    printf("The status for deleting World is %d\n", deleteNode(&l, "World"));
-    printf("Pointer before: %p\n", &l);
+//    printf("Pointer before: %p\n", &l);
 //    deleteNode(l,"World");
     status s=success;
     s=max(s,deleteNode(l,"Hello4"));
     if(s == empty) l=NULL;
-    s=max(s,deleteNode(l,"Hello3"));
-    if(s == empty) l=NULL;
-    s=max(s,deleteNode(l,"Hello2"));
-    if(s == empty) l=NULL;
-    s=max(s,deleteNode(l,"Hello1"));
-    if(s == empty) l=NULL;
-    s=max(s,deleteNode(l,"Hello0"));
-    if(s == empty) l=NULL;
-    printf("Pointer after: %p\n", &l);
+//    s=max(s,deleteNode(l,"Hello3"));
+//    if(s == empty) l=NULL;
+//    s=max(s,deleteNode(l,"Hello2"));
+//    if(s == empty) l=NULL;
+//    s=max(s,deleteNode(l,"Hello1"));
+//    if(s == empty) l=NULL;
+//    s=max(s,deleteNode(l,"Hello0"));
+//    if(s == empty) l=NULL;
+//    printf("Pointer after: %p\n", &l);
 //    displayList(l);
-    destroyList(l);
+    printf("Status: %d\n",destroyList(l));
     l=NULL;
-    destroyList(l);
+    printf("Status: %d\n",destroyList(l));
 //    if(deleteNode(&l,"World")== empty){
 //        l=NULL;
 //    }else displayList(l);
@@ -244,17 +242,29 @@ int main() {
                            byID, byPC,
                            byPlanet), s); // Read the configuration file
 
-//    deleteNode(&byHappiness, getData(jerries));
-//    removeFromHashTable(byID, "6e45");
     Jerry *saddest = NULL;
 //    s=memory_error;
     char c = '0'; // A variable for the user's choice
-    while (c != '9' && s != memory_error) { // While the user didn't choose to exit
-//        if (MemoryError) { // If there was a memory error
-//            //destroyEverything(); // Destroy everything
-//            printf("Memory Error"); // Print "Memory Error"
-//            break; // Break the loop
-//        }
+    while (c != '9') { // While the user didn't choose to exit
+        if (memory_error == s) {
+            printf("Memory error\n");
+            break;
+        }
+        if (jerries == NULL) {
+            jerries = createLinkedList(destroyJerry, printJerryInfo, equalJerry,
+                                       shallowCopy); // Create a linked list of Jerries
+            if (!jerries) {
+                s = memory_error;
+                break;
+            }
+        }
+        if (byHappiness == NULL) {
+            byHappiness = createLinkedList(doNothing, printJerryInfo, equalJerry, shallowCopy);
+            if (!byHappiness) {
+                s = memory_error;
+                break;
+            }
+        }
         // Print the menu
         printf("Welcome Rick, what are your Jerry's needs today ? \n");
         printf("1 : Take this Jerry away from me \n");
@@ -275,6 +285,7 @@ int main() {
                 printf("What is your Jerry's ID ? \n");
                 char id[BUFFER]; // A variable for the Jerry's ID
                 scanf("%s", id);
+                while (getchar() != '\n'); // Clear the buffer
                 KeyValuePair k = (KeyValuePair) lookupInHashTable(byID, id);
                 if (k) {
                     printf("Rick did you forgot ? you already left him here ! \n");
@@ -288,6 +299,7 @@ int main() {
                 printf("What planet is your Jerry from ? \n");
                 char planet[BUFFER]; // A variable for the Jerry's planet
                 scanf("%s", planet);
+                while (getchar() != '\n'); // Clear the buffer
                 Planet *p = locatePlanet(planet, planets, numOfPlanets);
                 if (!p) {
                     printf("%s is not a known planet ! \n", planet);
@@ -296,6 +308,7 @@ int main() {
                 printf("What is your Jerry's dimension ? \n");
                 char dimension[BUFFER]; // A variable for the Jerry's dimension
                 scanf("%s", dimension);
+                while (getchar() != '\n'); // Clear the buffer
                 printf("How happy is your Jerry now ? \n");
                 int happiness;
                 scanf("%d", &happiness);
@@ -312,6 +325,7 @@ int main() {
                 printf("What is your Jerry's ID ? \n");
                 char id2[BUFFER]; // A variable for the Jerry's ID
                 scanf("%s", id2);
+                while (getchar() != '\n'); // Clear the buffer
                 KeyValuePair k2 = (KeyValuePair) lookupInHashTable(byID, id2);
                 if (!k2) {
                     printf("Rick this Jerry is not in the daycare ! \n");
@@ -326,6 +340,7 @@ int main() {
                 printf("What physical characteristic can you add to Jerry - %s ? \n", id2);
                 char pc2[BUFFER];
                 scanf("%s", pc2);
+                while (getchar() != '\n'); // Clear the buffer
                 pc2[strlen(pc2)] = '\0';
                 if (doesJerryHavePc(pc2, j2) > 0) {
                     printf("The information about his %s already available to the daycare ! \n", pc2);
@@ -343,6 +358,7 @@ int main() {
                 printf("What is your Jerry's ID ? \n");
                 char id3[BUFFER]; // A variable for the Jerry's ID
                 scanf("%s", id3);
+                while (getchar() != '\n'); // Clear the buffer
                 KeyValuePair k3 = (KeyValuePair) lookupInHashTable(byID, id3);
                 if (!k3) {
                     printf("Rick this Jerry is not in the daycare ! \n");
@@ -356,6 +372,7 @@ int main() {
                 printf("What physical characteristic do you want to remove from Jerry - %s ? \n", id3);
                 char pc3[BUFFER];
                 scanf("%s", pc3);
+                while (getchar() != '\n'); // Clear the buffer
                 if (doesJerryHavePc(pc3, j3) < 0) {
                     printf("The information about his %s not available to the daycare ! \n", pc3);
                     break;
@@ -369,6 +386,7 @@ int main() {
                 printf("What is your Jerry's ID ? \n");
                 char id4[BUFFER]; // A variable for the Jerry's ID
                 scanf("%s", id4);
+                while (getchar() != '\n'); // Clear the buffer
                 KeyValuePair k4 = (KeyValuePair) lookupInHashTable(byID, id4);
                 if (!k4) {
                     printf("Rick this Jerry is not in the daycare ! \n");
@@ -384,11 +402,16 @@ int main() {
                 for (int i = 0; i < j4->numOfPcs; i++) {
                     s = max(s, removeFromMultiValueHashTable(byPC, j4->pcs[i]->name, j4));
                 }
-                s = max(s, deleteNode(byHappiness, j4));
-                if(s==empty){
 
+
+                s = max(s, deleteNode(byHappiness, j4));
+                if (s == empty) {
+                    byHappiness = NULL;
                 }
                 s = max(s, deleteNode(jerries, j4));
+                if (s == empty) {
+                    jerries = NULL;
+                }
                 printf("Rick thank you for using our daycare service ! Your Jerry awaits ! \n");
                 break;
 
@@ -396,17 +419,19 @@ int main() {
                 printf("What do you remember about your Jerry ? \n");
                 char pc5[BUFFER];
                 scanf("%s", pc5);
+                while (getchar() != '\n'); // Clear the buffer
                 printf("What do you remember about the value of his %s ? \n", pc5);
                 float amount5;
                 scanf("%f", &amount5);
+                while (getchar() != '\n'); // Clear the buffer
                 //check pc in hash
-                LinkedList list = (LinkedList ) searchByKeyInTable(byPC, pc5);
+                LinkedList list = (LinkedList) searchByKeyInTable(byPC, pc5);
                 if (!list || isEmpty(list)) {
                     // if none with the pc print no jerry with this pc
-                    printf("Rick we can't help you - we do not know any Jerry's %s ! \n ",pc5);
+                    printf("Rick we can't help you - we do not know any Jerry's %s ! \n ", pc5);
                     break;
                 }
-                Jerry *j5 = (Jerry *)searchClosest(list, amount5, pc5, diffPC);
+                Jerry *j5 = (Jerry *) searchClosest(list, amount5, pc5, diffPC);
                 printJerryInfo(j5);
                 s = max(s, removeFromHashTable(byID, j5->ID));
                 s = max(s, removeFromMultiValueHashTable(byPlanet, j5->org->planet->name, j5));
@@ -427,21 +452,27 @@ int main() {
                 }
                 printf("Rick this is the most suitable Jerry we found : \n");
                 char *saddestID = saddest->ID;
-                s = max(s, printJerryInfo(saddest));
-                s = max(s, removeFromHashTable(byID, saddestID));
-                printf("Remove from byID %d \n", s);
-                s = max(s, removeFromMultiValueHashTable(byPlanet, saddest->org->planet->name, saddest));
-                printf("Remove from saddest %d \n", s);
+                s = max(success, printJerryInfo(saddest));
+                s = max(success, removeFromHashTable(byID, saddestID));
+                printf("Status byID : %d \n", s);
+                s = max(success, removeFromMultiValueHashTable(byPlanet, saddest->org->planet->name, saddest));
+                printf("Status byPlanet : %d \n", s);
 
                 for (int i = 0; i < saddest->numOfPcs; i++) {
-                    s=max(s,removeFromMultiValueHashTable(byPC, saddest->pcs[i]->name, saddest));
-                    printf("Remove from PC by %s %d \n",saddestID ,s);
-
+                    s = max(success, removeFromMultiValueHashTable(byPC, saddest->pcs[i]->name, saddest));
+                    printf("Status byPC : %d \n", s);
                 }
-                s = max(s, deleteNode(byHappiness, saddest));
-                printf("Remove from byHappiness %d \n", s);
-                s = max(s, deleteNode(jerries, saddest));
-                printf("Remove from jerries %d \n", s);
+                status listStatus;
+                listStatus = max(success, deleteNode(byHappiness, saddest));
+                if (listStatus == empty) {
+                    byHappiness = NULL;
+                }
+                printf("Status byHappiness : %d \n", s);
+                listStatus = max(success, deleteNode(jerries, saddest));
+                if (listStatus == empty) {
+                    jerries = NULL;
+                }
+                printf("Status Jerries : %d \n", s);
                 //
                 break;
 
@@ -465,6 +496,7 @@ int main() {
                     case '2':
                         printf("What physical characteristics ? \n");
                         char pc7[BUFFER];
+                        while (getchar() != '\n'); // Clear the buffer
                         scanf("%s", pc7);
                         if (isEmpty(searchByKeyInTable(byPC, pc7))) {
                             printf("Rick we can not help you - we do not know any Jerry's %s ! \n", pc7);
@@ -518,29 +550,18 @@ int main() {
                 break;
 
             case '9': // If the user chose to
-                s=success;
-                s = max(destroyMultiValueHashTable(byPC), -1);
-                printf("By PC: %d \n", s);
-                s = max(destroyMultiValueHashTable(byPlanet), -1);
-                printf("By Planet: %d \n", s);
-                s = max(destroyHashTable(byID), -1);
-                printf("By ID: %d \n", s);
-                s = max(destroyList(byHappiness), -1);
-                printf("By happiness: %d \n", s);
-                s = max(destroyList(jerries), -1);
-                printf("Jerries: %d \n", s);
+                s = success;
+                s = max(destroyMultiValueHashTable(byPC), s);
+                s = max(destroyMultiValueHashTable(byPlanet), s);
+                s = max(destroyHashTable(byID), s);
+                s = max(destroyList(byHappiness), s);
+                s = max(destroyList(jerries), s);
                 for (int i = 0; i < numOfPlanets; i++) {
-                    s = max(destroyPlanet(planets[i]), -1);
-                    printf("destroy planet %d: %d \n", i,s);
-
+                    s = max(destroyPlanet(planets[i]), s);
                 }
                 free(planets);
-//                free(byHappiness);
-//                free(jerries);
-                if (s == success) {
-                    printf("The daycare is now clean and close ! \n");
-                    return 0;
-                }
+                printf("The daycare is now clean and close ! \n");
+                return 0;
                 break;
 
             default: // If the user chose an invalid option
