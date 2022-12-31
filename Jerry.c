@@ -24,15 +24,6 @@ Element copyJerry(Element e) {
     return j;
 }
 
-char *strupr(char *origin) { // A function that converts a string to uppercase and assigns it to dest
-    char *newStr = malloc(strlen(origin) + 1);
-    if (!newStr) return NULL; // Memory Error
-    for (int i = 0; i < strlen(origin); i++) { // For each character in the string
-        newStr[i] = toupper(origin[i]); // Convert it to uppercase and assign it to dest
-    }
-    newStr[strlen(origin)] = '\0'; // Add a null terminator to the end of the string
-    return newStr;
-}
 
 Planet **createPlanetArray(int size) {
     Planet **arr = malloc(sizeof(Planet *) * size);
@@ -47,28 +38,15 @@ Planet **createPlanetArray(int size) {
 
 Planet *locatePlanet(char *name, Planet **ps, int numOfPlanets) { // A function that locates a planet by its name
     //The function returns a pointer to the planet if it was found, and NULL otherwise
-    char *name_upper = strupr(name);
-    if (!name_upper) return NULL; // Memory Error
 
     for (int i = 0; i < numOfPlanets; i++) { // For each planet
         if (ps[i]) { // If the planet exists
-            char *p_upper = strupr(ps[i]->name);
-            if (!p_upper) {
-                free(p_upper); // Freeing the memory for the upper case planet name
-                free(name_upper); // Freeing the memory for the upper case name
-                MemoryError = true; // Set the memory error flag to true
-                return NULL;
-            }
-            if (strcmp(p_upper, name_upper) == 0) { // If the planet name is equal to the name
-                free(p_upper); // Freeing the memory for the upper case planet name
-                free(name_upper); // Freeing the memory for the upper case name
+            if (strcmp(ps[i]->name, name) == 0) { // If the planet name is equal to the name
                 return ps[i]; // Return the planet
             }
-            free(p_upper); // Freeing the memory for the upper case planet name
             // at the end of the loop, the planet wasn't found, will be set next iteration
         }
     }
-    free(name_upper); // Freeing the memory for the upper case name
     return NULL; // Planet wasn't found, return NULL
 }
 
@@ -78,12 +56,6 @@ bool compareHappiness(Element a, Element b) {
     return j1->happiness > happiness;
 }
 
-char *deepCopyString(char *a) {
-    char *copy = malloc(strlen(a) + 1);
-    if (!copy) return NULL; // Memory Error
-    strcpy(copy, a);
-    return copy;
-}
 
 status readFromConfig(char *url, int numOfPlanets, Planet **planets,
                       LinkedList jerries, LinkedList jerriesSorted, int *numOfJerries, hashTable byID,
@@ -294,16 +266,8 @@ bool checkIfJerryHasPc(Jerry *jerry,
     if (!pcName) { // If the PhysicalCharacteristic name is empty
         return false; // Return false
     }
-    char *pcName_upper = strupr(pcName); // Allocate memory for the PhysicalCharacteristic name in upper case
     for (int i = 0; i < jerry->numOfPcs; i++) { // For each PhysicalCharacteristic in the Jerry's array
-        char *name_upper = strupr(jerry->pcs[i]->name); // Convert the name to upper case
-        if (!name_upper) { // If the allocation failed
-            MemoryError = true; // Set the memory error flag to true
-            free(name_upper); // Free the memory of the variable created
-            free(pcName_upper); // Free the memory of the variable created
-            return false; // Return false
-        }
-        if (strcmp(name_upper, pcName_upper) == 0) { // If the PhysicalCharacteristic name is the same as the name given
+        if (strcmp(jerry->pcs[i]->name, pcName) == 0) { // If the PhysicalCharacteristic name is the same as the name given
             return true; // PC found, Return true
         }
     }
@@ -336,27 +300,11 @@ int doesJerryHavePc(char *name, Jerry *j) {
     if (j->numOfPcs == 0) { // If the Jerry has no PhysicalCharacteristics
         return -1;
     }
-    char *upper_name = strupr(name); // Convert the name to uppercase
-    if (!upper_name) { // If the allocation failed
-        free(upper_name); // Free the memory of the new name pointer
-        return -1;
-    }
     for (int i = 0; i < j->numOfPcs; i++) { // For each PhysicalCharacteristic in the Jerry's array
-        char *upper_j_name = strupr(j->pcs[i]->name); // Convert the name of the PhysicalCharacteristic to uppercase
-        // And allocates memory for it
-        if (!upper_j_name) { // If the allocation failed
-            free(upper_name); // Free the memory of the uppercase name pointer
-            free(upper_j_name); // Free the memory of the new uppercase PC name pointer
-            return -1;
-        }
-        if (strcmp(upper_j_name, upper_name) == 0) { // If the names are equal
-            free(upper_j_name); // Free the memory of the uppercase PC name pointer
-            free(upper_name); // Free the memory of the uppercase name pointer
+        if (strcmp(j->pcs[i]->name, name) == 0) { // If the names are equal
             return i; // PC found, return the index
         }
-        free(upper_j_name); // Free the memory of the uppercase PC name pointer
     }
-    free(upper_name); // Free the memory of the uppercase name pointer
     return -1; // PC not found, return -1
 }
 
@@ -399,34 +347,17 @@ status removePcFromJerry(char *name, Jerry *j) { // A function that removes a Ph
     if (j->numOfPcs == 0) { // If the Jerry has no PhysicalCharacteristics
         return failure;
     }
-    char *name_upper = strupr(name); // Allocate and assign memory for the name in uppercase
-    if (!name_upper) { // If the allocation failed
-        MemoryError = true; // Set the memory error flag to true
-        free(name_upper); // Free the memory of the new name pointer
-        return failure;
-    }
-    char *jerry_pc_upper = strupr(j->pcs[0]->name); // Allocate memory for the name of the first PC
-    if (!jerry_pc_upper) { // If the allocation failed
-        MemoryError = true; // Set the memory error flag to true
-        free(name_upper); // Free the memory of the uppercase name pointer
-        free(jerry_pc_upper); // Free the memory of the new uppercase PC name pointer
-        return failure;
-    }
     if (j->numOfPcs == 1) { // If the Jerry has only one PhysicalCharacteristic
-        if (strcmp(name_upper, jerry_pc_upper) == 0) { // If the names are equal
+        if (strcmp(name, j->pcs[0]->name) == 0) { // If the names are equal
             free(j->pcs[0]->name); // Free the memory of the PC name
             free(j->pcs[0]); // Free the memory of the PC
             free(j->pcs); // Free the memory of the array
             j->pcs = (PhysicalCharacteristics **) NULL; // Set the array to NULL
-            free(jerry_pc_upper); // Free the memory of the uppercase PC name pointer
-            free(name_upper); // Free the memory of the uppercase name pointer
             j->numOfPcs = 0; // Set the number of PCs to 0
             return success;
         }
     }
     int idx = doesJerryHavePc(name, j); // Check if the Jerry has the PhysicalCharacteristic, return the index
-    free(jerry_pc_upper); // Free the memory of the uppercase PC name pointer
-    free(name_upper); // Free the memory of the uppercase name pointer
 
     if (idx == -1) { // If the Jerry doesn't have the PhysicalCharacteristic
         return failure;

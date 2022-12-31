@@ -1,7 +1,8 @@
 This project is about managing Jerries instance.
-The project is divided into two parts:
+The project is divided into 3 parts:
 First part is about managing the Jerry, which is done by the Jerry.c
-Second part is about managing all the Jerries, which is done by the ManageJerries.c
+Second part is about managing the Jerry instances, which is done by the ADT's in the various files.
+Third part is about managing all the Jerries in the JerryBoree, which is done by the JerryBoree.c using the ADT's.
 
 There are plenty of planets in every dimension, and each dimension has its own Planets.
 Each Jerry is defined by his Origin (as the Dimension and the Planet),
@@ -28,7 +29,7 @@ Every Origin contains:
 Every Physical Characteristic (PhysicalCharacteristics) contains:
     char pointer to an array for its name,
     float value for its value,
-    and function pointer to functions:
+    the PC's functions can be used to:
         to print the Physical Characteristic's name and value,
         to initialize the Physical Characteristic,
         to destroy the Physical Characteristic.
@@ -39,7 +40,7 @@ Every Jerry contains:
     number of Physical Characteristics as int,
     array of chars as ID,
     array of Physical Characteristics,
-    and pointer functions:
+    the Jerry's functions can be used to:
         check if jerry has a physical characteristic,
         add Physical Characteristic to Jerry,
         remove Physical Characteristic from Jerry,
@@ -48,20 +49,65 @@ Every Jerry contains:
         initializes and allocates space for a jerry,
         frees space allocated for a jerry and its components.
 
-The program is managed by a menu, which is printed by the ManageJerries.c file.
-First, it reads data from a configuration file given by the user in the terminal.
-Then, it prints the menu, and the user can choose what to do.
-The menu contains 7 options:
-    1. Print all the Jerries
-    2. Print all the Planets
-    3. Add Physical Characteristic to Jerry
-    4. Remove Physical Characteristic from Jerry
-    5. Print Jerries by a planet name
-    6. Print Jerries by a Physical Characteristic
-    7. Exit and clear the memory
+Generic ADTs:
+    LinkedList: contains a pointer to next, prev and head nodes, a pointer to data, and functions to:
+        add an Element to the list,
+        add an Element to the list in a specific order,
+        remove an Element from the list,
+        print the list,
+        initialize the list,
+        destroy the list.
 
-The program will take in the value from the user. any other value will send out a message
-and print the menu again.
+    KeyValuePair: contains a key and a value, and functions to:
+        print the key and value,
+        get the Key and Value,
+        initialize the KeyValuePair,
+        destroy the KeyValuePair.
 
-There is also a fallback option, if the program is unable to allocate memory, at any stage
-of the program, print an error message and exit the program.
+    HashTable: contains an array of Elements, a size, and functions to:
+        add an Element to the HashTable,
+        remove an Element from the HashTable,
+        search for an Element in the HashTable,
+        print the HashTable,
+        initialize the HashTable,
+        destroy the HashTable.
+
+    MultiValueHashTable: contains a hash table, size and functions to:
+        add an Element to the MultiValueHashTable,
+        remove an Element from the MultiValueHashTable,
+        search for an Element in the MultiValueHashTable,
+        print the MultiValueHashTable,
+        initialize the MultiValueHashTable,
+        destroy the MultiValueHashTable.
+
+
+The main assignment was to search for a Jerry in the JerryBoree as fast as possible, which is achieved by using the various ADTs.
+LinkedList:
+    The Jerries created are assigned to Jerry Linked list, which has the ability to destroy a Jerry instance.
+    The jerries are also assigned to byHappiness which is a sorted LinkedList, going by saddest Jerry to the Happiest.
+
+HashTable:
+    The jerries are sorted by ID in the byID hash table. since ID is one of a kind, it is a good way to search for a Jerry.
+    Every cell contains a list of KeyValuePair, which contains the ID as Key and the Jerry as Value.
+
+MultiValueHashTable:
+    The jerries are sorted by Physical Characteristics in the byPhysicalCharacteristics multi value hash table.
+    since there are many PC's to a Jerry, it is a good way to search for a Jerry by PC.
+    Every cell contains a KeyValuePair which contains the PC's name as Key and a LinkedList of Jerries as Value.
+
+    The jerries are also sorted by Planet in the byPlanet multi value hash table.
+    Every cell contains a KeyValuePair which contains the Planet's name as Key and a LinkedList of Jerries as Value.
+
+The main menu goes by:
+    1. Add a Jerry
+    2. Add PC to Jerry
+    3. Remove PC from Jerry
+    4. Remove a Jerry
+    5. Similar Jerry remove (by PC)
+    6. Saddest Jerry remove
+    7. Print functions, opens a new menu:
+        1. Print all Jerries
+        2. Print all Jerries by PC
+        3. Print all Planets
+    8. Interact with jerries, which either increase or reduce the Jerry's happiness
+    9. Exit
